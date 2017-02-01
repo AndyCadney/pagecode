@@ -1,0 +1,54 @@
+﻿/* Inner page tabs */
+
+	.tve-page-tabset .nav-tabs {
+            margin-top: -15px;
+			border-bottom: 1px solid $gray-lightest;
+			> li {
+					position: relative;
+                    top: 5px;
+                    left: 0;
+                    z-index: 50;
+                    padding: 1em 1em 0 1em; 
+					margin-bottom: -7px;
+					background-color: transparent;
+                    
+					> a {
+						font-size: 100%!important;
+            font-weight: bold;
+						line-height: 1.42857;
+						margin-right: 2px;
+						padding-top: 5px;
+						border: 1px solid transparent;
+                        
+					}
+					> a:hover {
+						border-color: $gray-lightening $gray-lightening $gray-lightest; 
+				  }
+			}
+	}
+
+    .tve-page-tabset .nav-tabs > li > {
+			a, a:focus {
+                margin-top: 15px;
+				margin-bottom: 0px;
+				padding-bottom: 3px;
+                background-color: #fafafa;
+			}
+    		a:hover {
+                background-color: #e8e8e8;
+			}
+	}
+
+	.tve-page-tabset .nav-tabs > li.active > {
+			a, a:hover, a:focus {
+				color: $gray;
+				background-color: white;
+				@include light-border();
+				border-bottom: 7px solid #fff;
+				cursor: default; 
+			}
+	}
+
+  .inline-report-modal.tve-page-tabset .nav-tabs > li > a {
+    font-size: 80%!important;
+  } 

@@ -1,0 +1,115 @@
+
+
+.centred-canvas {
+  position: relative;
+  width: 100%;
+  left: 8%;
+  top: 0;
+  margin-left: 400px;
+}
+
+
+.filler {
+  position: absolute;
+  z-index: 1;
+  top: 85px;
+  width: 200px;
+  height: 600px;
+  margin: 0;
+  padding: 0;
+}
+
+.annotation-content {
+
+  overflow-x: auto;
+
+  background-image: url(/Content/chequer-dull.png); 
+	margin-top:-15px; }
+
+.canvas-container {
+  margin: 0 auto; 
+	}
+
+.lower-canvas {
+  z-index: 5;
+}
+
+.annotation-loading-spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -35px 0px 0px -35px;
+  height:70px;
+  width:70px;
+  z-index:2000;
+  display:none;
+}
+
+.annotation-canvas {
+  z-index: 5;
+  -webkit-box-shadow: 0px 0px 30px 0px rgba(50, 50, 50, 0.6);
+  -moz-box-shadow: 0px 0px 30px 0px rgba(50, 50, 50, 0.6);
+  box-shadow: 0px 0px 30px 0px rgba(50, 50, 50, 0.6);
+}
+
+.stroke-style {
+  padding: 4px 6px;
+  border: none; }
+
+.stroke-style:hover {
+  background-color: #F2F2F2;
+  padding: 3px 5px;
+  border: solid 1px #cccccc; }
+
+h4.panel-title {
+    font-weight: bold;
+}
+
+.navbar-tv-bottom .dropdown-menu {
+    top: 75%;
+    margin-top: 0;
+    min-width: 123px;
+}
+
+.navbar-tv-bottom .dropdown-menu ul {
+    margin-top: 0;
+    padding: 0 10px;
+}
+
+.form-control.font-properties {
+    padding: 6px 12px;
+}
+
+.form-control.tablecol-x-80pct-width {
+    width:80%;
+}
+
+.text-white {
+  color:white!important;
+}
+
+button i.fa-lg {
+  font-size: 1.33333333em;
+}
+
+button i.fa-2x {
+  font-size: 2em;
+}
+
+button i.fa-3x {
+  font-size: 3em;
+}
+
+button i.fa-4x {
+  font-size: 4em;
+}
+
+button i.fa-5x {
+  font-size: 5em;
+}
+
+.alert-animated {
+  max-width: 350px;
+  margin:0 auto;
+  margin-top: 25px;
+}

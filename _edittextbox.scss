@@ -1,0 +1,251 @@
+/* Widget custom classes inc text widget */
+
+.label.full-width {
+	display: inline-block;
+	font-size: 100%;
+	font-weight: normal;
+	margin: 5px;
+}
+
+.label.full-width.label-width {
+	margin: 0;
+}
+
+.label.full-width.serial {
+	white-space: normal;
+}
+
+.edittextbox-widget {
+	position: relative;
+	left: 0;
+	top: 0;
+	width: auto;
+}
+
+.edittextbox-widget .non-active {
+	display: inline-block;
+	font-weight: normal;
+	font-size: 100%;
+	min-height: 24px;
+    width: 100%;
+	overflow: hidden;
+	padding: 2px 5px;
+	margin-top: 2px;
+	border-radius: 3px;
+}
+
+.edittextbox-widget .active-text {
+  @extend .non-active;
+  background-color: $gray-lightest;
+  @include light-border();
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+          transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+.tv-skills .edittextbox-widget .active-text.active-editing {
+    position: relative;
+    z-index: 50;
+    top: -50px;
+    left: -15px;
+}
+
+.edittextbox-widget .active-text.active-editing .active-text {
+  position: relative;
+  z-index: 150;
+  width: 150px;
+
+}
+
+.edittextbox-widget .active-text.active-editing .form-control {
+  position: relative;
+  z-index: 100;
+  width: 150px;
+}
+
+
+ .h1 .edittextbox-widget .active-text, .h2 .edittextbox-widget .active-text, .h3 .edittextbox-widget .active-text, .h4 .edittextbox-widget .active-text {
+  padding-right: 30px;
+  padding-bottom: 0px;
+}
+
+ .form-control .edittextbox-widget .active-text {
+     border-color: #fff;
+     background-color: #fff;
+ }
+
+  .form-control .edittextbox-widget .active-text.title-text:hover:after {
+  content: none; 
+  }
+
+.mimic-edittextbox-widget {
+    @extend .edittextbox-widget;
+}
+
+.mimic-activetext{
+    @extend .active-text;   
+    cursor:pointer;
+}
+
+.mimic-titletext{
+    @extend .title-text;
+}
+
+// Custom width edittextboxes:
+// box width: With either no class statement or class="edit-text-box": if full-width is either set to true, or not set, text box width will be 100%, if full-width is set to false box width is 210px.
+// box width: With full-width: false and class statement class="medium-text-edit-box" box width is 110px, class="qty-text-edit-box" box width is 70px. 
+// DO NOT USE full-width: true or have full-width not set with either class statement class="medium-text-edit-box" or class="qty-text-edit-box", as hover positioning will NOT be correct. 
+
+.medium-text-edit-box .edittextbox-widget {
+	width: 130px;
+	.title-text.active-text {
+	min-width: 110px;
+	width: 110px;
+	}
+	.active-editing.active-text  {
+	position: absolute;
+	left: 0px;
+	top: 0;
+	z-index: 10;
+	overflow: visible;
+	min-width: 100px;
+	width: auto;
+	}
+}
+
+.right-sidebar .medium-text-edit-box .edittextbox-widget {
+	width: 95px;
+	.title-text.active-text {
+	min-width: 75px;
+	width: 75px;
+	}
+	.active-editing.active-text  {
+	position: absolute;
+	left: 0px;
+	top: 0;
+	z-index: 10;
+	overflow: visible;
+	min-width: 65px;
+	width: auto;
+	}
+}
+
+// RV start
+
+.rv-activities .edittextbox-widget {
+	.title-text.active-text {
+	min-width: 60px;
+	width: 60px;
+	}
+	.active-editing.active-text {
+		margin-left: 0px;
+		min-width: 110px;
+		width: auto;
+	}
+}
+
+// Dates wo start
+
+.dates-text-edit-box .edittextbox-widget {
+	width: 100px;
+	.active-text {
+	font-size: 12px;
+	min-width: 80px;
+	width: 80px;
+	}
+ .active-editing.active-text {
+		margin-left: -150px;
+		min-width: 350px;
+		width: auto;
+	}
+	.active-text.title-text {
+		width: 85px;
+	}
+}
+
+.new-dates-text-edit-box .edittextbox-widget {
+	width: 100px;
+	.active-text {
+	font-size: 12px;
+	min-width: 80px;
+	width: 80px;
+	}
+ .active-editing.active-text {
+    margin-left: -150px;
+	margin-top: 30px;
+    min-width: 320px;
+    width: auto;
+    z-index: 50;
+	}
+	.active-text.title-text {
+		width: 85px;
+	}
+}
+
+.new-dates-text-edit-box.left-box .edittextbox-widget .active-editing.active-text {
+    margin-left: -115px;
+    }
+
+.new-dates-text-edit-box.right-box .edittextbox-widget .active-editing.active-text {
+    margin-left: -170px;
+    }
+
+.dashboard.dates-text-edit-box .active-editing.active-text {
+	  width: 325px !important;	
+    margin-left: 0px;
+	}
+
+.qty-text-edit-box {
+	width: 70px;
+}
+
+.qty-text-edit-box .edittextbox-widget {
+	width: 85px;
+.title-text.active-text {
+	min-width: 70px;
+	width: 70px;
+	}
+	.active-editing.active-text {
+		min-width: 95px;
+		width: 95px;
+	}
+}
+
+.date-picker {
+	display:inline-block; 
+	min-height:290px;
+}
+
+.edittextbox-widget {
+	.active-text:hover {
+		@include basic-border();
+		background-color: $gray-even-lightest;
+	}
+	.active-text.title-text:hover:after {
+		position:absolute;
+		font-family: FontAwesome;
+		right:3px;
+		top:3px;
+		z-index: 10;
+		content: "\f040";
+	}
+	.active-text.title-text:active:after {
+		 content: "";
+	}
+}
+
+.title-text ul {
+	 display: block;
+   list-style-type: disc;
+   margin-left: 1em;
+   margin-top:16px;
+   padding-left: 40px;
+}
+.title-text ol {
+	 display: block;
+   list-style-type: decimal;
+   margin-top:16px;
+   margin-left: 1em;
+   padding-left: 40px;
+}

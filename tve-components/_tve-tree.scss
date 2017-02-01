@@ -1,0 +1,82 @@
+﻿/* bomTree CSS */
+
+.bomTree {
+  padding-left:0px;
+	margin-left: 0px;
+}
+
+/* bomTree vf-stack CSS */
+
+.vf-stack.fa-stack {
+  top: 2px;
+  right: 0;
+  height: 1.5em;
+  margin-right: -5px; }
+
+	button .vf-stack.fa-stack {  
+  margin-left: -5px; }
+
+ul.bomTree .vf-stack .extra-file-empty-minus, ul.bomTree .vf-stack .extra-file-empty-plus, ul.bomTree .vf-stack .extra-whitesquare {
+  left: 2px;
+  top: 2px; }
+
+	ul.bomTree .vf-stack .extra-whitesquare {
+	color: $brand-white; }
+
+	.vf-stack .vf-icon-size.fa-stack-1x {
+			left: 8px;
+			top: 12px;
+			font-size: 10px;
+		}
+
+		.vf-stack .vf-circleoutline-size.fa-stack-1x {
+			left: 8px;
+			top: 10px;
+			font-size: 15px;
+		}
+
+		.vf-stack .vf-circle-size.fa-stack-1x {
+			left: 8px;
+			top: 10px;
+			font-size: 15px;
+			color: $brand-white;
+		}
+
+		.fa-stack-x {
+			position: absolute;
+		}
+
+		.vf-stack .vf-icon-size.fa-stack-x {
+			left: 6px;
+			top: 10px;
+			font-size: 6px;
+		}
+
+		.vf-stack .vf-circleoutline-size.fa-stack-x {
+			left: 6px;
+			top: 8px;
+			font-size: 11px;
+		}
+
+		.vf-stack .vf-circle-size.fa-stack-x {
+			left: 6px;
+			top: 8px;
+			font-size: 11px;
+			color: $brand-white;
+		}
+
+/* bomTree vf-stack-mono CSS */
+
+.vf-stack-mono.fa-stack {
+  top: 0px;
+  left: -10px;
+  margin-bottom: -0.5em;
+  margin-bottom: -1.5em; }
+
+.vf-stack-mono.vf-stack-offset.fa-stack {
+  display: block;
+  top: 5px;
+  left: -20px;
+  height: 0.8em;
+  margin-top: -0.3em;
+  margin-bottom: 0.3em; }

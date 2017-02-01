@@ -1,0 +1,364 @@
+﻿/* Main TVE Scaffolding Body, nav etc */
+
+html, body {
+	height: 100%;
+}
+
+body {
+	padding-top: 271px;
+}
+
+[ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+body.tve-pages {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.navbar-collapse {
+	margin-top: 4px;
+	background-color: $brand-white;
+} 
+
+.heading-strip {
+	position: fixed;
+	top: -1px;
+	left: 0;
+	z-index: 50;
+	color: $brand-white;
+	width: 100%;
+	height: 70px;
+	padding: 10px 0  0 10px;
+	background-color: $brand-primary;
+}
+
+.version-details-title {
+	font-size: 13px;
+	color: $gray-lightest;
+}
+
+.version-details {
+	font-size: 13px;
+	font-weight: bold;
+	color: $brand-white;
+}
+
+.version-name-title {
+	font-size: 11px;
+	color: $gray-lightest;
+}
+
+.version-name {
+	font-size: 11px;
+	font-weight: bold;
+	color: $brand-white;
+}
+
+.navbar-fixed-top {
+  border: 0;
+}
+
+.upper-fill {
+	min-height: 100%;
+	height: 100.9%;
+	margin: 0;
+    overflow: hidden; 
+}
+
+.fill {
+	min-height: 100%;
+	height: 100%;
+	margin-right: 1px;
+}
+
+.fill ul {
+    margin-bottom: 0;
+}
+
+.padding-none {
+	padding:0 !important;
+}
+
+.activity-header {
+	margin-bottom: 20px;
+	min-height: 63px;
+	padding-top: 15px;
+	padding-bottom: 5px;
+	border-bottom: 3px solid $gray-lightening;
+	background-color: $brand-white;
+}
+
+.title-field {
+	min-height:28px;
+	margin-left: 20px;
+	padding: 2.5px 10px;
+	@include basic-border();
+  background-color: $brand-white;
+}
+
+.title-field .options-checkbox {
+	margin-top: 3px;
+}
+
+.activity-header label {
+	white-space: nowrap;
+}
+
+.selectedactivity > div {
+  border:solid 3px orange;
+}
+
+.route-panel {
+	margin: 10px;
+}
+
+.sidebar {
+	height: 100%;
+	min-height: 100%;
+	max-height: 100%;
+	display: block;
+	padding: 30px;
+	overflow:hidden;
+	overflow-y:auto;
+	border-right: 1px solid $gray-lightening;
+	background-color: $gray-even-lightest;
+
+  .nav-tabs {
+    margin-top:-20px;
+  }
+  .tab-pane {
+    padding-top:15px!important;
+  }
+}
+
+.sidebar-input {
+  margin-left:25px;
+  width:90%!important;
+  margin-bottom:7px;
+}
+
+.right-sidebar {
+    font-size: 76%;
+  height: 100%;
+	min-height: 100%;
+	max-height: 100%;
+	display: block;
+	padding-top: 28px;
+	overflow:hidden;
+	overflow-y:auto;
+	border-left: 1px solid $gray-lightening;
+	background-color: $gray-even-lightest;
+}
+
+.right-sidebar h1, .right-sidebar h2, .right-sidebar h3, .right-sidebar h4, .right-sidebar h5 {
+    font-size: 100%;
+} 
+
+.sidebar-option-image {
+    margin-left: -40px;
+}
+
+.sidebar-option-list-item {
+    margin-left: -35px;
+}
+
+.activity-slide {
+  width:210px;
+  display:inline-block;
+  padding:5px;
+	img {
+		margin-left:auto;
+		margin-right:auto;
+	}
+	> div {
+		border:solid 3px $gray-lightening;
+		margin-left:auto;
+		margin-right:auto;
+		padding: 5px;
+		height: 200px;
+	}
+	> div > div {
+		height: 150px;
+	}
+}
+
+.activity-image {
+  width:100%;
+	margin:5px;
+	padding: 3%;
+	padding-left: 7%;
+	> div {
+		border:solid 3px $gray-lightening;
+		margin-left:auto;
+		margin-right:auto;
+		padding: 5px;
+		max-width:200px;
+	}
+	> div > img {
+		margin-left:auto;
+		margin-right:auto;
+		cursor:pointer;
+	}
+}
+
+.selectedactivity > div {
+  border:solid 3px orange;
+}
+
+button {
+	i.fa {
+		font-size: 14px;
+		color: $gray-light;
+	}
+	i.fa-play {
+		font-size: 13px;
+	}
+		.btn:hover {
+		outline:1px solid $gray;
+		box-shadow: 0px 0px 0px 2pt $brand-cream;
+		background-color: rgba(245, 207, 93, 0.1);
+	}
+}
+
+button.btn {
+	@include basic-border();
+}
+
+.navbar-tv-top {
+		margin-top: 35px;
+		margin-bottom: 0;
+		padding-bottom: 0;
+		padding-left: 5px;
+		background-color: $brand-white;
+		border-bottom: none;
+		.active {
+			background-color: $gray-lightest;
+		}
+		.navbar-toggle {
+			border-color: $gray-lightest;
+		}
+}
+
+.icon-bar {
+	display: block;
+	width: 22px;
+	height: 2px;
+	border-radius: $border-radius-small;
+	background-color: $gray-light;
+}
+
+.navbar-tv-bottom {
+	min-height: 64px;
+	padding: 0 5px;
+	margin: 58px 0 -35px 0;
+	background-color: $gray-lightest;
+	border-bottom: solid 1px $gray-lightening;
+	ul {
+  		display: inline-block;
+			margin-top: 6px;
+			padding: 0 10px;
+	}
+	ul li {
+		padding-right: 2px;
+	}
+    ul li > div {
+		position: relative;
+        z-index: 30;
+	}
+    ul li.box-below {
+    position: absolute;
+    left: 0;
+    top: 38px;
+    font-size: 75%;
+    color: $gray-light!important;
+    font-weight: bold;
+    text-align: center;
+    display: inline-block;
+    float: none;
+    width: 100%;
+   }
+    ul li .checkbox label {
+    font-weight: bold;
+    margin-right: 10px;
+   }
+   .navbar-brand {
+       position: relative;
+       left: 25px;
+       top: 2px;
+       color: #b3b3b3;
+        font-weight: bold;
+        margin: -3px 0px 0px 40px ;
+    }
+    ul > li.navbar-brand {
+        left: 10px;
+        top: 0;
+        font-weight: bold;
+        margin: 4px 20px 0px 30px ;
+    }
+	.navbar-nav {
+		position: relative;
+		left: 0;
+		top: 0;
+	}
+	button i.fa {
+		font-size: 18px;
+	}
+	button button i.fa-play {
+		font-size: 16px;
+	}
+}
+
+
+
+.bom-results.portal-content-main .panel-heading > nav.portal-toolbar.navbar-tv-bottom {
+    padding: 0; 
+}
+
+.panel-heading nav.navbar-tv-bottom ul:first-child {
+    color: #31708f;
+    background-color: #d9edf7;
+    border-color: #bce8f1; 
+}
+
+span.box-below {
+    position: absolute;
+    left: 0;
+    top: 38px;
+    z-index: 0;
+    font-size: 75%;
+    color: $gray-light!important;
+    font-weight: bold;
+    text-align: center;
+    display: inline-block;
+    float: none;
+    width: 100%;
+   }
+
+nav.navbar-tv-bottom .container-fluid:focus, .main-content, .sidebar, .right-sidebar {
+  outline: 0 !important;
+}
+
+.bom-results.portal-content-main nav.navbar-tv-bottom {
+  min-height: 50px;
+  margin-top: 0px;
+  border: none; 
+}
+
+.toolbar-backup{
+  background-color: #e8e8e8;
+  border-bottom: solid 1px #cccccc; 
+}
+
+ul.main-nav .ng-binding {
+	  @include x-browser-border-radius($border-radius-large);
+	  padding: 0.2em 0.8em;
+	  font-size: 80%;
+	  color: $brand-white;
+	  background-color: $brand-blue;
+	  font-weight: bold;
+	  margin-left: 2px;
+}

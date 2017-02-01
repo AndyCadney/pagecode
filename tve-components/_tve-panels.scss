@@ -1,0 +1,22 @@
+﻿.tv-configurations-panal {
+  margin-left:15px;
+  margin-right:15px;
+	> .panel-heading {
+		font-size: 14px;
+        font-weight: bold;
+        color: #333;
+        background: #e7e7e7;
+	}
+}
+
+.panel.panel-open .panel-collapse.in .panel-body {
+    height: 69vh;
+    overflow: hidden;
+    overflow-y: auto;   
+}
+
+.scroll-list {
+    height: 69vh;
+    overflow: hidden;
+    overflow-y: auto;   
+}

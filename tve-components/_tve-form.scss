@@ -1,0 +1,47 @@
+﻿.control-text + select.form-control {
+    margin-right: 60px;
+}
+
+.form-group.checkbox-group {
+  min-height: 33px;
+  margin: 0px;
+  padding-top: 5px; }
+
+.form-group.checkbox-group.checkbox-group.panel {
+  padding-left: 5px; 
+  padding-right: 5px; }
+
+.form-group.checkbox-group.checkbox-group.panel .panel-title {
+  font-size: 85%; }
+
+/* Formatting for select menus, improves styling in IE */
+
+.form-group.select-group {
+  margin: 0 2.5px 0 1.5px;
+}
+
+ .form-group.radio-group {
+  min-height: 33px;
+  margin: 0px 25px 0 10px;
+  padding-top: 5px;
+ }
+
+.form-group.select-group label {
+  margin-left: 2px;
+  margin-right: 3px; 
+}
+
+.form-control.select-open-menu {
+  margin: 0px 1px;
+  padding: 0px 0 0 8px; }
+
+.form-control.select-menu {
+  @extend .form-control.select-open-menu;
+  max-height: 33px;
+}
+
+.form-control.select-menu + .input-group-addon {
+  height: 31px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}

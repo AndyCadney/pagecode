@@ -1,0 +1,259 @@
+﻿/* Form Collapse Classes */
+
+.vf-portal .production-search.container-fluid {
+    margin-top: 0;
+}
+
+.content-search .row.collapse-button {
+    display: block;
+    visibility: visible;
+    margin: 0;
+}
+
+.content-search .collapse {
+    display: none;
+    visibility: hidden;
+}
+
+.production-search .panel.panel-default {
+    border: none;
+    margin-bottom: -15px;
+    background: transparent;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.production-search .panel-body {
+    padding: 30px 0 0 0;
+    border: none;
+    background: transparent;
+}
+
+.production-search .panel-heading {
+    border: 1px solid #ddd;
+}
+
+.content-search .hr.wo {
+    display: none;
+    visibility: hidden;
+}
+
+.content-search .collapse.in {
+    display: block;
+    visibility: visible;
+}
+
+.content-search .form-group .checkbox-inline {
+    padding-top: 5px;
+}
+
+@media (min-height: 800px) {
+
+    .vf-portal .production-search.container-fluid {
+        margin-top: -20px;
+    }
+
+    .production-search .panel-heading {
+        padding: 0;
+    }
+
+    .production-search .panel-body {
+       // padding: 0;
+    }
+
+     .production-search .panel.panel-default {
+        margin-bottom: 0;
+    }
+
+    .production-search .hr.wo, .content-search hr.bottom-hr.hr {
+        display: inline-block;
+        visibility: visible;
+    }
+
+    .production-search .row.collapse-button {
+        display: none;
+        visibility: hidden;
+    }
+
+   .production-search .row.well.collapse {
+        min-height: 0px;
+        padding: 0;
+        margin-bottom: 0;
+        background-color: #fff;
+        border: none;
+        border-radius: 0;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+}
+
+
+.checkbox, .checkbox-inline {
+	font-weight: bold;
+}
+
+.input-sm {
+	height: 26px;
+}
+
+.checkbox-big input[type=checkbox]
+{
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(1.5); /* IE */
+  -moz-transform: scale(1.5); /* FF */
+  -webkit-transform: scale(1.5); /* Safari and Chrome */
+  -o-transform: scale(1.5); /* Opera */
+  padding: 10px;
+}
+
+label.checkbox-list-label.ng-empty {
+    font-weight: normal;
+}
+
+/* Bootstrap form overrides */
+
+.form-control.control-x-0-width {
+  width:40px;
+}
+
+.form-control.control-x-1-width {
+  width:70px;
+}
+
+.form-control.control-x-2-width {
+  width:140px;
+}
+
+.form-control.control-x-3-width {
+  width:210px;
+}
+
+.form-control.control-x-5-width {
+  width:290px;
+}
+
+.form-control.control-x-6-width {
+  width:360px;
+}
+
+.form-control.control-x-7-width {
+  width:430px;
+}
+
+.form-control.control-x-40pct-width {
+  width:40%;
+}
+
+/* Max widths */
+
+.control-x-0-max-width {
+  max-width:40px;
+}
+
+.control-x-1-max-width {
+  max-width:70px;
+}
+
+.control-x-2-max-width {
+  max-width:140px;
+}
+
+.control-x-3-max-width {
+  max-width:210px;
+}
+
+.control-x-5-max-width {
+  max-width:290px;
+}
+
+.control-x-6-max-width {
+  max-width:360px;
+}
+
+.control-x-7-max-width {
+  max-width:430px;
+}
+
+.code-validator.form-control {
+  width: 100px;
+}
+
+.form-group.select-group {
+  margin: 0 2.5px 0 1.5px;
+}
+
+ .form-group.radio-group {
+  min-height: 33px;
+  margin: 0px 25px 0 10px;
+  padding-top: 5px; }
+
+.form-group.select-group label {
+  margin-left: 2px;
+  margin-right: 3px; }
+
+.form-control.select-open-menu {
+  margin: 0px 1px;
+  padding: 0px 0 0 8px; }
+
+.form-control.select-menu  {
+  @extend .form-control.select-open-menu;
+  max-height: 33px;
+}
+
+.prod-grid .ui-grid-pager-control-input, .prod-grid .ui-grid-pager-row-count-picker select, .prod-grid .ui-grid-pager-first, .prod-grid .ui-grid-pager-previous, .prod-grid .ui-grid-pager-next, .prod-grid .ui-grid-pager-last {
+    height: 33px;
+    padding: 8px 12px;
+}
+
+.prod-grid .ui-grid-pager-control-input, .prod-grid .ui-grid-pager-row-count-picker select {
+    padding-left: 6px;
+}
+
+.form-control.select-menu + .input-group-addon {
+  max-height: 31px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.form-control.select-menu + .input-group-addon > label {
+  margin-top: -3px;
+  margin-bottom: 0;
+}
+
+
+.form-group.checkbox-group {
+  min-height: 33px;
+  margin: 0px 10px 0px 6px;
+  padding-top: 5px; }
+
+.form-group.checkbox-group.bom-panel {
+  padding-top: 0; }
+
+.form-group.checkbox-group.checkbox-group.panel {
+  padding-left: 10px; 
+  padding-right: 10px; }
+
+
+.checkbox.checkbox-menu {
+  margin: 4px 0.5px 0px 0.5px;
+  padding: 0px 8px; }
+
+.deep-checkbox-group {
+    padding-bottom: 20px;
+}
+
+.form-inline .control-label {
+    padding-top: 4px;
+}
+
+.form-button-group {
+    top: 6px;
+}
+
+/* Form Responsive Classes */
+
+@media (max-width: 1175px) {
+    .form-control.select-menu {
+      max-width: 150px;
+    }
+}

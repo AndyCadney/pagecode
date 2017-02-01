@@ -1,0 +1,71 @@
+﻿/* BOM styles */
+
+.task5Valid {
+  background-color: $brand-green !important;
+}
+
+.task5ValidAlt {
+  background-color: lighten($brand-green, 10%) !important;
+}
+
+.task5NotValid {
+  background-color: $brand-pink !important;
+}
+
+.task5NotValidAlt {
+  background-color: lighten($brand-pink, 10%) !important;
+}
+
+.bomTaskGreen {
+  background-color: $brand-green !important;
+}
+
+.bomTaskGreenAlt {
+  background-color: lighten($brand-green, 10%) !important;
+}
+
+.bomRedText {
+  font-weight:bold;
+  color: darken($brand-danger, 30%) !important;
+  background-color: lighten($brand-danger, 10%) !important;
+}
+
+.bomRedTextOnly {
+  font-weight:bold;
+  color: $brand-danger !important;
+}
+
+.bomGreenText {
+  font-weight:bold;
+  color: darken($brand-green, 30%) !important;
+  background-color: lighten($brand-green, 10%) !important;
+}
+
+.bomGreenTextOnly {
+  font-weight:bold;
+  color: darken($brand-green, 30%) !important;
+}
+
+.bomTaskYellow {
+  background-color: $brand-yellow !important;
+}
+
+.bomTaskYellowAlt {
+  background-color: lighten($brand-yellow, 10%) !important;
+}
+
+.bomTaskOrange {
+  background-color: lighten($brand-warning, 10%) !important;
+}
+
+.bomTaskOrangeAlt {
+  background-color: lighten($brand-warning, 20%) !important;
+}
+
+.bomTaskRed {
+  background-color: lighten($brand-danger, 25%) !important;
+}
+
+.bomTaskRedAlt {
+  background-color: lighten($brand-danger, 30%) !important;
+}

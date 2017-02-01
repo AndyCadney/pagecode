@@ -1,0 +1,472 @@
+﻿/* VF helper classes */
+
+.test-box {
+    height: 100px;
+    width: 100px;
+    background: #5cb85c;
+}
+
+.display-none {
+    display: none !important;
+}
+
+.display-none.display-table-cell {
+    display: table-cell !important;
+}
+
+.visibility-hidden {
+    visibility: hidden !important;
+}
+
+/* Max widths */
+
+.max-100 {
+    max-width: 7.15rem;
+}
+
+.max-200 {
+    max-width: 14.3rem;
+}
+
+.max-300 {
+    max-width: 21.4rem;
+}
+
+.max-400 {
+    max-width: 28.6rem;
+}
+
+.max-500 {
+    max-width: 35.7rem;
+}
+
+.max-600 {
+    max-width: 42.9rem;
+}
+
+.max-700 {
+    max-width: 50rem;
+}
+
+/* Responsive helpers */
+
+    .hidden-below-1400, span.hidden-below-1400 {
+        display: none;
+    }
+
+    .hidden-above-1400 {
+        display: block;
+    }
+
+    span.hidden-above-1400 {
+        display: inline-block;
+    }
+
+    .hidden-below-1700, span.hidden-below-1700  {
+        display: none;
+    }
+
+    .hidden-above-1700 {
+        display: block;
+    }
+
+    span.hidden-above-1700 {
+        display: inline-block;
+    }
+
+    @media (min-width:1400px) {
+
+        .hidden-above-1400, span.hidden-above-1400 {
+            display: none;
+        }
+
+	    .hidden-below-1400 {
+            display: block;
+        }
+
+       span.hidden-below-1400 {
+            display: inline-block;
+        }
+    }
+
+    @media (min-width:1700px) {
+
+        .hidden-above-1700, span.hidden-above-1700 {
+            display: none;
+        }
+
+	    .hidden-below-1700 {
+            display: block;
+        }
+
+        span.hidden-below-1700 {
+            display: inline-block;
+        }
+    }
+
+    td.hidden-cell-below-1500, th.hidden-cell-below-1500 {
+        display: none;
+    }
+
+    @media (min-width:1500px) {
+
+	    td.hidden-cell-below-1500, th.hidden-cell-below-1500 {
+            display: table-cell;
+        }
+    }
+
+/* Admin section classes */
+
+  .auto-results-panel {
+    height: 300px;
+    overflow-y: scroll;
+  }
+
+  .auto-emul-data {
+    font-family: 'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;
+    margin: 5px;
+    text-indent: 0px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -ms-word-break: break-all;
+    word-break: break-all;
+    word-break: break-word;
+  }
+
+  .count-cell {
+    width: 33%;
+    padding: 5px;
+    text-align: center;
+  }
+
+  .green-bck {
+    background-color: #99FF00;
+    color: #000000;
+  }
+
+  .amber {
+    background-color: #FFD801;
+    color: #000000;
+  }
+
+  .white {
+    background-color: #FFFFFF;
+    color: #000000;
+  }
+
+.red {
+        background-color: #FFFFFF;
+        color: #000000;
+    }
+
+    .green {
+        color: green;
+    }
+
+    .brown {
+        color: saddlebrown;
+    }
+
+    .darkgold {
+        color: darkgoldenrod;
+    }
+
+    .redback {
+        background-color: lightpink;
+    }
+
+    .orangeback {
+        background-color: #ff8927;
+    }
+
+    .yellowback {
+        background-color: #FFFF88;
+    }
+
+    .greenback {
+        background-color: lightgreen;
+    }
+
+.grey-background {
+    background-color: #6E6E6E;
+}
+
+.no-border {
+    border: none;
+}
+
+.time-within {
+    background-color: #4faf25;
+    color: #fff;
+  }
+
+  .time-over {
+    background-color: #9a3e3e;
+    color: #fff;
+  }
+
+  .five-cols {
+    width: 20%;
+  }
+/* CSS statement to remove clear cross in input boxes in IE10. This applies app wide automatically */
+
+input::-ms-clear {
+    display: none!important;
+}
+
+
+/* mcn-note class adds bullet points to the comments field of MCN description */
+
+/* Helper to add bullets when using edittext box or similar, add text-bullet class to any containing div or td for bullets to show on saved text in container */
+
+.text-bullet ul > li {
+    list-style-type: disc;
+}
+
+.mcn-note p > ul > li {
+    list-style-type: disc;
+}
+
+.mcn-note p > ul > li > span {
+    position: relative;
+    top: 1px;
+    left: -2px;
+}
+
+.drop-box {
+	padding: 0.5em;
+	border: 3px dashed $gray-lightest;
+	width: 100%;
+	text-align: center;
+	color: grey;
+	border-radius: $border-radius-base;
+}
+
+.drop-box-lg-modal {
+    margin-bottom: 15px; 
+}
+
+.drop-box-sm {
+    height: 105px;
+    margin-bottom: 10px; 
+}
+
+.drop-box-standard {
+    margin-left: 15px; 
+    width:300px;
+}
+
+.drop-box-image {
+    width:60px;
+    padding:0.8em;
+    display:block;
+    opacity:0.2;
+    margin:0 auto;
+}
+
+.drag-over {
+    border: 3px dashed $brand-info;
+}
+
+/* Useful classes to achieve standard VF styling and spacing */
+
+.full-width {
+	width:100%;
+}
+
+.clickable {
+  cursor:pointer;
+}
+
+.unclickable {
+  cursor: default;
+}
+
+.inline-block {
+	display: inline-block;
+}
+
+.col-12-group {
+  margin: 0 10px;
+}
+
+.padding-none {
+  padding: 0 !important; 
+}
+
+.padding-small {
+    padding: 5px;
+}
+
+padding-medium {
+    padding: 10px;
+}
+
+.padding-large {
+    padding: 20px;
+  }
+
+.margin-small {
+    margin: 5px;
+}
+
+.margin-medium {
+    margin: 10px;
+}
+
+.margin-large {
+    margin: 20px;
+}
+
+ .text-white {
+  color:white!important;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.img-center {
+	margin:0 auto;
+}
+
+.thumbnail-box {
+  height:90px;
+  width:60px; 
+}
+
+.vert-mid {
+	vertical-align:middle;
+}
+
+.no-margin {
+  margin:0px !important ;
+}
+
+.tpad-three {
+  padding-top: 3px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* Legacy helper classes */
+
+.centre-img {
+	margin: 0 auto;
+}
+
+.nowrap {
+    white-space:nowrap;
+}
+
+.text-wrap {
+    white-space: normal;
+}
+
+.missing-field {
+    background-color: $brand-pink;
+}
+
+.warning-img {
+    height: 40px;
+    margin: 0 auto;
+}
+
+.swc-missing {
+    background-color: $brand-danger;
+    color: $brand-white;
+}
+
+.null-task-version {
+	margin-top:50px;
+}
+
+.ajax-loader {
+	height: 300px; 
+	background-image: url('../../Content/images/ajax-loader.gif'); 
+	background-position: center; 
+	background-repeat: no-repeat;
+}
+
+.ajax-loader-center {
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.strong {
+	font-weight: bold;	
+}
+
+.img-center {
+	margin:0 auto;
+}
+
+.lot-progress {
+  @extend .progress;
+  margin-bottom:0!important;
+}
+
+.choosefileupload {
+    text-align: center;
+    min-height:70px;
+    float:left; 
+    width:49%; 
+    @include basic-border(); 
+    padding: 0.5em;
+}
+
+.progress-bar {
+    background-image: -webkit-linear-gradient(top, #428bca 0%, #3071a9 100%);
+    background-image: -o-linear-gradient(top, #428bca 0%, #3071a9 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#428bca), to(#3071a9));
+    background-image: linear-gradient(to bottom, #428bca 0%, #3071a9 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff428bca', endColorstr='#ff3071a9', GradientType=0);
+    background-repeat: repeat-x;
+}
+.progress-bar-success {
+    background-image: -webkit-linear-gradient(top, #5cb85c 0%, #449d44 100%);
+    background-image: -o-linear-gradient(top, #5cb85c 0%, #449d44 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#5cb85c), to(#449d44));
+    background-image: linear-gradient(to bottom, #5cb85c 0%, #449d44 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff5cb85c', endColorstr='#ff449d44', GradientType=0);
+    background-repeat: repeat-x;
+}
+
+/* Elements visible or invisible */
+
+.visible-element {
+    visibility: visible;
+}
+
+.invisible-element {
+    visibility: hidden;
+}
+
+/* VF custom row class */
+
+.tve-row {
+  margin-left: -15px;
+  margin-right: -15px; }
+  .tve-row:before, .tve-row:after {
+    content: " ";
+    display: table; }
+  .tve-row:after {
+    clear: both; }
+
+.simple-lightgray-border {
+  border: 1px solid lightgray;
+}
+
+.hidden-div {
+  opacity: 0;
+  font-size: 1px;
+  position:absolute;
+  top:-2000px;
+  left:-2000px
+}
+
+.bg-actioned {
+  background-color: #9CAD3A !important;
+}

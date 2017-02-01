@@ -1,0 +1,30 @@
+﻿@media (min-width:768px) {
+    .login-page {
+        margin-left: -60px; 
+   }
+}
+
+@media (min-width:1150px) {
+    .login-page {
+        margin-left: -100px; 
+   }
+
+    .login-page-content {
+    top: 30px;
+    }
+
+    .login-page .form-group {
+	    margin-bottom: 15px;
+    }
+
+    .login-page .panel-body {
+        padding-top: 35px;
+        padding-bottom: 15px;
+    }
+}
+
+@media (min-width:1400px) {
+    .login-page {
+        margin-left: -240px; 
+   }
+}

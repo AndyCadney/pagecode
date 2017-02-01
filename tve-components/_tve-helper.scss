@@ -1,0 +1,304 @@
+﻿/* TVE Helper Classes */
+
+
+/* CSS statement to remove clear cross in input boxes in IE10. This applies app wide automatically */
+
+input::-ms-clear {
+    display: none!important;
+}
+
+/* TVE Classes */
+
+.modal-body .input-group {
+    
+}
+
+
+.modal-body .input-group .form-control {
+    
+}
+
+.testitem-maths-symbol {
+    font-size: 18px;
+}
+
+.testitem-visible-block .testitem-maths-symbol {
+    position: relative;
+}
+
+.invalidtd {
+        background-color: lightpink;
+        padding-left: 5px;
+    }
+
+.drop-box {
+	padding: 0.5em;
+	border: 3px dashed $gray-lightest;
+	width: 100%;
+	text-align: center;
+	color: grey;
+	border-radius: $border-radius-base;
+}
+
+.drag-over {
+    border: 3px dashed $brand-info;
+}
+
+.inline-report-box {
+	padding: 0.5em;
+	border: 3px solid $gray-lightest;
+	width: 100%;
+	margin-top:15px;
+}
+
+.img-center {
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.inline-block {
+	display: inline-block;
+}
+
+
+.vert-mid {
+	vertical-align:middle!important;
+}
+
+.report-iframe {
+  border:none;
+  width:100%;
+  min-width:100%;
+  height: 100%;
+	min-height: 100%;
+}
+
+.report-iframe-pdf {
+  background:url(../../Content/images/ajax-loader-large.gif) center center no-repeat;
+}
+
+.ajax-loader {
+    text-align: center;
+    width: 100%;
+    min-height: 70px;
+    background:url(../../Content/images/ajax-loader.gif) center center no-repeat;
+}
+
+.ajax-large-loader {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+	height: 150px; 
+	background-image: url('../../Content/images/ajax-loader-large.gif'); 
+	background-position: center; 
+	background-repeat: no-repeat;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.handler {
+  background-color:lightgray;
+  width:6px;
+  cursor:move;
+}
+
+.font-weight-normal {
+  font-weight:normal;
+}
+
+.text-vertical-middle {
+  vertical-align:middle !important;
+}
+
+.tve-warning {
+  height:200px;
+}
+
+.draft-status {
+    background-color: $brand-orange;
+    }
+
+.auth-status {
+    background-color: $brand-success;
+}
+
+.missing-field {
+    background: $brand-danger;
+ }
+
+.warning-img {
+    height: 40px;
+    margin: 0 auto;
+}
+
+.swc-missing {
+    background-color: $brand-danger;
+    color: $brand-white;
+}
+
+.Pending {
+  background: #BDBDBD!important;
+}
+.PendingAlt {
+  background:#aaaaaa!important;
+}
+.Active {
+  background: #E78432!important;
+}
+.Completed {
+  background: #4faf25!important;
+}
+.Scrapped, .Failed {
+  background: #ee2a2a!important;
+}
+.Deferred {
+  background: #9a00ff!important;
+}
+.ActiveAlt {
+  background: #E78432 !important;
+}
+.DeferredAlt {
+  background: #a834f5 !important;
+}
+.CompletedAlt {
+  background: #66b941 !important;
+}
+.FailedAlt, .ScrappedAlt {
+  background: #ee2a2a !important;
+}
+.AutoCompleteAlt {
+  background: #2962ea !important;
+}
+.NotStarted {
+  color: #ee2a2a!important;
+}
+.Ready {
+  color: #E78432!important;
+}
+.InProduction {
+  color: #66b941!important;
+}
+.OnHold {
+  color: #034af3!important;
+}
+.AutoComplete {
+  background: #034af3!important;
+}
+.NotStartedBack {
+  background: #ee2a2a!important;
+}
+.ReadyBack {
+  background: #E78432!important;
+}
+.InProductionBack {
+  background: #66b941!important;
+}
+.OnHoldBack {
+  background: #034af3!important;
+}
+.CompletedBack {
+  background: black!important;
+}
+.Valid {
+  color: #66b941!important;
+}
+.InValid {
+  color: #ee2a2a!important;
+}
+.overflow-x-auto {
+  overflow-x: auto;
+}
+
+.ul-nopadding {
+  padding:3px 0 0 0;
+}
+
+.sortable-placeholder {
+  background-color: #CCFFFF!important;
+}
+
+.allactivities-sortable-placeholder {
+   @extend .sortable-placeholder, .activity-slide;
+}
+
+.activity-image-opclipboard {
+    margin-top: 15px;
+    padding: 0px 30px;
+    height: 160px;
+
+    > div {
+        border: solid 3px $gray-lightening;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 5px;
+        max-width: 200px;
+        margin-bottom: 5px;
+        height: 120px;
+        overflow: hidden;
+    }
+
+    > div > img {
+        margin-left: auto;
+        margin-right: auto;
+        width: auto;
+        height: 70px;
+    }
+
+    $activity-font-size: 14px;
+    $activity-line-height: 1.4;
+    $activity-lines-to-show: 2;
+
+    > div > p {
+        display: block;
+        display: -webkit-box;
+        max-width: 400px;
+        height: $activity-font-size*$activity-line-height*$activity-lines-to-show;
+        margin: 0 auto;
+        font-size: $activity-font-size;
+        line-height: $activity-line-height;
+        -webkit-line-clamp: $activity-lines-to-show;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+.bom-tree-heading.ng-scope {
+  font-size:90%;
+}
+
+
+.table.table-layout-auto-ie10fix {
+  table-layout: auto;
+}
+
+.imgan-radio {
+  margin-top:0px !important;
+}
+
+.header-button {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    z-index: 5000;
+    width: 190px;
+    height: 72px;
+    padding: 14px 27px;
+    border: 1px solid #ccc;
+    background: #fafafa;
+}
+
+.header-button button.btn {
+    padding: 8px 12px 11px 12px; 
+}
+
+.header-button i {
+    font-size: 120%; 
+}
+
+.header-button span.ng-binding {
+    display: inline-block;
+    margin-top: -3px; 
+}

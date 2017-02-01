@@ -1,0 +1,76 @@
+﻿.tv-page {
+	.main-content { 
+		padding: 30px;
+	}
+    .main-content.tab-content {
+        padding: 0px;
+    }
+    .main-content.tab-content .tab-pane {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+     .report-main-content { 
+		padding: 30px 20px;
+	}
+    .sidebar-body { 
+		padding: 30px;
+	}
+	.details-content { 
+	padding: 20px 0px;
+	overflow:hidden;
+	}
+}
+
+.tv-bom.tv-page .main-content {
+    padding: 0 20px 30px 20px;
+}
+
+.tve-page-tabset {
+    margin: 0;
+}
+
+.main-content {
+	height: 100%;
+	min-height: 100%;
+	display: block;
+	overflow:hidden;
+	overflow-y:auto;
+}
+
+.report-main-content {
+   @extend .main-content;
+   padding: 30px 20px !important;
+   padding-bottom:100px!important;
+}
+
+.translations-main-content {
+   @extend .main-content;
+   padding: 30px 20px !important;
+   padding-bottom:100px!important;
+}
+
+.main-content.main-content-header {
+    height: 50px;
+    min-height: 50px;
+    padding: 0 10px;
+    margin: 0;
+    border-bottom: 1px solid #ccc;}
+
+.main-content.repeat-main {
+	padding-bottom: 0;
+}
+
+.report-main-content {
+   @extend .main-content;
+   padding: 30px 20px !important;
+   padding-bottom:100px!important;
+}
+
+.translations-main-content {
+   padding: 0 !important;
+}
+
+
+.selected-border {
+  border: 3px solid #FFA500!important;
+}

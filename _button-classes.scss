@@ -1,0 +1,282 @@
+﻿/* Button classes */
+
+/* Main portal scaffolding button classes */
+
+button.btn-menu, .btn-menu, .btn-default, .btn-success, .btn-primary, .btn-warning, .btn-danger, .btn-info {
+  min-width: 42px;
+  background: #fff;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #cccccc; 
+}
+
+.table.table-bordered.table-striped .btn, .prod-grid .btn {
+    min-width: 38px;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+@media (max-width:1550px) {
+    .table.table-bordered.table-striped .btn, .prod-grid .btn {
+        min-width: 34px;
+        padding: 4px;
+    }
+
+    .table.table-bordered.table-striped .btn i, .prod-grid .btn i {
+        font-size: 11px;
+    }
+}
+
+/* IE only hack to sort a button alignment issue in the first column of TVE tables */
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .table.table-bordered.table-striped tr td:first-child .btn > i, .prod-grid .ui-grid-viewport .ui-grid-cell i {
+        text-indent: 0;
+        margin-left: -4px;
+    }
+}
+
+
+
+.table.table-bordered.table-striped tr .btn i {
+    color: #adadad;
+}
+
+.table.table-bordered.table-striped tr .btn, .prod-grid {
+    border-color: #e0e0e0;
+}
+
+.table.table-bordered.table-striped tr:hover .btn i, .prod-grid .ui-grid-row:hover .btn i {
+    color: #333;
+}
+
+
+.table.table-bordered.table-striped tr:hover .btn, .prod-grid .ui-grid-row:hover .btn {
+    border-color: #333;
+}
+
+a.btn-menu {
+  height: 33px; 
+}
+
+a.btn-menu i {
+  margin-top: -20px;
+}
+
+.btn-menu-selected {
+    outline: 1px solid #555555;
+    box-shadow: 0px 0px 0px 2pt #fcf8e3;
+    background-color: rgba(245, 207, 93, 0.1);
+}
+
+button.btn-default, .btn-default {
+  background: #fdfdfd; }
+
+button.btn-menu.btn-primary,  .btn-menu.btn-primary {
+    background: #fff;
+}
+
+button.btn-menu.btn-primary, .btn-menu.btn-primary, .btn-primary {
+    background: #3760C1;
+}
+
+button.btn-menu.btn-info, .btn-menu.btn-info, .btn-info {
+    background: #0098CD;
+}
+
+button.btn-menu.btn-success, .btn-menu.btn-success, .btn-success {
+    background: #2CA01C;
+}
+
+button.btn-menu.btn-danger, .btn-menu.btn-danger, .btn-danger {
+    background: #E33D43;
+}
+
+button.btn-menu.btn-warning, .btn-menu.btn-warning, .btn-warning {
+    background: #FC8618;
+}
+
+.btn-menu:hover {
+	outline:1px solid $gray;
+	box-shadow: 0px 0px 0px 2pt $brand-cream;
+	background-color: rgba(245, 207, 93, 0.1);
+}
+
+.vf-portal .btn-group {
+    margin-left: 3px;
+}
+
+.vf-portal .btn-group .btn {
+    margin-left: -2px;
+}
+
+.vf-portal .btn-group .btn.bigger-icon {
+    margin-left: -3px;
+}
+
+.vf-portal .btn-group .btn-default.btn-search, .vf-portal .input-group-btn .btn-default.btn-search {
+    background-color: #eeeeee;
+    margin-left: -3px;
+}
+
+.portal-btn-group .btn-default.btn-search {
+    background-color: #eeeeee;
+}
+
+.input-group.select-group .input-group-btn {
+    top: 1px;
+}
+
+.vf-portal .input-group.select-group .btn-default.btn-search {
+    margin-left: -3px;
+}
+
+/* Custom class to set icon colour to white, used in #Test' icon in TVE */
+
+.btn.btn-default.btn-success {
+    background: #2CA01C;
+}
+
+.btn.btn-default.btn-success > i.fa.white-icon {
+    color: #fff;
+}
+
+/* Skills Assignment class with hack to sort sidebar button misalign in Firefox */
+
+div.paste-skills {
+    height: 60px;
+    border-bottom: 1px solid #ccc;
+}
+
+div.paste-skills .btn.btn-xs {
+    position: relative;
+    top: 0px;
+    left: -20px;
+    min-width: 24px;
+}
+
+/* Sidebar panel button, positions button in panel added to the sidebar. Used in TVE/parts (tvbom.html) */
+
+.sidebar-panel-button {
+    margin-top: -30px;
+    padding-top: 12px;
+    padding-left: 28px;
+    padding-bottom: 4px;
+    margin-left: -13px;
+    margin-right: -30px;
+}
+
+
+
+/* Sets size for font awesome buttons used within button tags */
+
+button.btn-menu, .btn-menu {
+	min-width: 42px;
+	background-color: $brand-white;
+	margin:  0 0.5px 10px 0.5px;
+	@include basic-border();
+}
+
+.btn-menu-selected {
+    outline: 1px solid #555555;
+    box-shadow: 0px 0px 0px 2pt #fcf8e3;
+    background-color: rgba(245, 207, 93, 0.1);
+}
+
+/* TVE Buttons */
+
+.btn-menu:hover {
+	outline:1px solid $gray;
+	box-shadow: 0px 0px 0px 2pt $brand-cream;
+	background-color: rgba(245, 207, 93, 0.1);
+}
+
+button i.fa {
+	font-size: 14px;
+	color: $gray-light;
+}
+
+/* Bigger-icon class:
+    
+    Use the bigger-icon class ONLY if the icomoon icon inside a button appears smaller than
+    the usual icon size, making the icon difficult for the user to see and identify
+
+    DO NOT use to randomly make a button icon bigger for some other 'custom' purpose,
+    as it is designed to maintain VF Standard button sizing.
+*/
+
+.btn .btn-toggle, i.btn-toggle i {
+    color: #ccc;
+}
+
+.btn.bigger-icon i, .btn.bigger-icon span {
+    font-size: 17px;
+    margin-top: -3px;
+    margin-left: -2px;
+    margin-right: 0px;
+}
+
+/* puts a border around any button with .btn class applied */
+
+button.btn {
+	@include basic-border();
+    opacity: 1;
+}
+
+/* Sets button hover appearance for any button with .btn class applied */
+
+button .btn:hover {
+	outline:1px solid $gray-light;
+	box-shadow: 0px 0px 0px 2pt $brand-cream;
+	background-color: rgba(245, 207, 93, 0.1);
+}
+
+/* Fades button on click with ng-class */
+
+button.btn.btn-disabled {
+    opacity: 0.3;
+}
+
+/* Customises file button appearance when btn-file class is applied */
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: pointer;
+    display: block;
+}
+
+.btn-stack {
+  padding:2px;
+	i.fa-stack-2x {
+		font-size: 2em!important;
+		color: $brand-danger;
+	}
+}
+
+/* Panel Buttons */
+
+.panel-heading .btn {
+    min-width: 38px;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+.panel-heading .btn.btn-default {
+    margin-top: -8px;
+    margin-bottom: -7px;
+}

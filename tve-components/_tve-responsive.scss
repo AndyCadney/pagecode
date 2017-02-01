@@ -1,0 +1,178 @@
+﻿/* VF Edit Top Main Menu */
+
+@media (min-width:768px) {
+
+	.tv-details .table-responsive {
+		overflow-x: hidden;
+	}
+
+	body {
+	padding-top:123px;
+	}
+
+	.activity-actions-nav::after {
+		font-size: 65%!important;
+	}
+
+	/* normal tabs */
+
+	.navbar-nav {
+		> li {
+			padding: 0.04em; 
+		}
+		> li > a {
+			font-size: 70%!important;
+			line-height: 1;
+			padding: 0.6em 0.5em 0.75em 0.4em;
+		}
+	}
+
+/* main navigation tabs */
+
+
+.main-nav > {
+		li > a {
+		color: $gray;
+		background-color: $gray-lightening;
+		}
+		li.active > a, .main-nav > li.active > a:hover, .main-nav > li.active > a:focus  {
+			color: $gray;
+			cursor: default;
+			background-color: $gray-lightest;
+		}
+		li > a:hover {
+		border-bottom: none;
+	}
+} 
+
+	/* Inner page tabs */
+
+.tve-pages .tab-pane {
+	padding-top: 40px;
+}
+
+.portal-content-sidebar .tab-pane {
+  padding-top: 5px
+}
+
+.tve-page-tabset .navbar-nav > li {
+		padding: 0.04em; 
+		> a {
+			font-size: 70%!important;
+			line-height: 1;
+			padding: 0.6em 0.5em 0.75em 0.4em;
+	}
+}
+
+	span.i-caption {
+    font-size: 75%;
+	}
+}
+
+
+
+@media (min-width: 992px) {
+
+body {
+	padding-top:131px;
+}
+
+.version-details-title {
+	font-size: 13px;
+	padding-left: 10px;
+}
+
+.version-details {
+	font-size: 13px;
+	padding: 15px 10px 0px 0px;
+}
+
+.version-name-title {
+	font-size: 11px;
+	padding-left: 8px;
+}
+
+.version-name {
+	font-size: 11px;
+	padding-right: 8px;
+}
+
+	.navbar-tv-bottom {
+		margin-top: 67px;
+	}
+
+	/* Normal tabs */
+
+	.navbar-nav > li {
+		padding-left: 0.05em;
+		padding-right: 0.1em;
+		> a {
+		font-size: 80%!important;
+		line-height: 1.1;
+		padding:  0.8em 0.5em 0.85em 0.4em;
+    }
+  }
+	
+	span.i-caption {
+    font-size: 85%;
+	}
+}
+@media (min-width: 1200px) {
+
+	body {
+		padding-top:136px;
+	}
+	
+	.heading-strip {
+		padding-top: 7.5px;
+	}
+
+	.version-details-title {
+		font-size: 16px;
+		padding-left: 20px;
+	}
+
+	.version-details {
+		font-size: 16px;
+		padding: 20px 20px 0px 0px;
+	}
+
+	.version-name-title {
+		font-size: 14px;
+		padding-left: 15px;
+	}
+
+	.version-name {
+		font-size: 14px;
+		padding-right: 15px;
+	}
+
+	.navbar-tv-bottom {
+	margin-top: 72px;
+	}
+
+	/* Normal tabs */
+
+	.navbar-nav > li {
+			padding-left: 0.1em;
+			padding-right: 0.15em;
+			> a {
+			font-size: 90%!important;
+			line-height: 1.2;
+			padding-left: 0.8em;
+				padding-right: 1em;
+			}
+  }
+}
+
+@media (max-device-width: 480px) and (orientation: landscape) {
+
+	.navbar-nav > li {
+			padding-left: 0.05em;
+			padding-right: 0.1em;
+			> a {
+				padding-left: 0.5em;
+				padding-right: 0.8em;
+			}
+    }
+}

@@ -1,0 +1,59 @@
+﻿/* Main Classes for tvactivities */
+
+.activity-notes-flash-container {
+    position: absolute;
+    width: 100%;
+    max-width: 185px;
+}
+
+.activity-notes-flash {
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 0;
+}
+
+.activity-notes-flash i.icon-stack-text, .activity-notes-flash .icon-circle2, .activity-notes-flash .icon-circle {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    font-size: 130%;
+}
+
+.activity-notes-flash .icon-circle2, .activity-notes-flash .icon-circle {
+    left: 3px;
+    top: 0;
+    font-size: 210%;
+}
+
+.activity-notes-flash .icon-circle {
+    color: #0098CD;
+}
+
+.activity-notes-flash .icon-circle2 {
+    color: #fff;
+}
+
+.activity-notes-flash i.icon-stack-text {
+    left: 3px;
+    top: 5.5px;
+    z-index: 120;
+    color: #0098CD;
+}
+
+@media (min-width: 1200px) {
+  .activity-notes-flash .icon-circle2, .activity-notes-flash .icon-circle {
+    left: 3px;
+    top: 0;
+    font-size: 240%;
+}
+
+.activity-notes-flash i.icon-stack-text {
+    left: 5px;
+    top: 6px;
+    z-index: 120;
+    font-size: 150%;
+    } 
+}

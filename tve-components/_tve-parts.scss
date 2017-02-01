@@ -1,0 +1,19 @@
+﻿.addparts-option-list {
+  background-color:$panel-info-heading-bg;
+  padding:5px 5px 0 5px;
+  margin-bottom:2px;
+  li {
+    display:inline-block;
+    vertical-align:middle;
+    .form-group.checkbox-group {
+      padding-top:0;
+      margin-right:4px;
+    }
+    span {
+      color:$link-color;
+    }
+    span:hover {
+      color:$link-hover-color;
+    }
+  }
+}

@@ -1,0 +1,35 @@
+﻿/* hr formatting classes */
+
+.hr {
+	float:left;
+	margin:0.8em 0;
+	width:100%;
+    @include basic-border();
+    border-width: 1px 0 0;
+}
+
+.bottom-hr {
+  margin: 0.8em 0 0 0;
+  border-color: #e0e0e0;
+  border-width: 2px 0 0; 
+}
+
+.hr-where-used-header {
+  margin: 0em 15px 0px 15px;
+  height: 20px;
+  width: 98%;
+  background: #fff;
+  border: none;
+  border-bottom: 1px solid #ccc;
+}
+
+.hr-where-used.bottom-hr {
+  margin: 8px 0 25px -25px;
+  width: 120%;
+}
+
+.hr-status {
+  margin: -17px -15px 15px -15px;
+  border: none;
+  height: 5px;
+}
