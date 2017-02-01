@@ -1,0 +1,366 @@
+﻿<style>
+  .khaki {
+    background-color: khaki !important;
+  }
+
+  .green {
+    background-color: lightgreen !important;
+  }
+
+  .red {
+    background-color: lightpink !important;
+  }
+
+  .grey {
+    background-color: rgba(244, 244, 244, 1);
+  }
+
+  .release-blocker {
+    background-color: lightpink !important;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+
+  .release-approved {
+    background-color: lightgreen !important;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+
+  .release-info {
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+
+  .release-blocker blockquote {
+    border-left: 5px solid #F78181;
+    font-size: larger;
+    margin-left: 10px;
+  }
+
+    .release-blocker blockquote footer {
+      color: #424242;
+    }
+
+  .release-blocker-icon {
+    width: 60px;
+  }
+
+    .release-blocker-icon i {
+      text-align: left !important;
+    }
+
+  .release-icon {
+    font-size: 3em;
+  }
+
+  .release-icon-small {
+    font-size: 1.2em;
+    display: inline;
+    margin-right: 2px;
+  }
+
+
+  .release-icon-medium {
+    font-size: 2em;
+    display: inline;
+  }
+
+  .release-active {
+    opacity: 1;
+  }
+
+  .release-archived {
+    opacity: 0.6;
+  }
+
+  .release-person-faded {
+    opacity: 0.2;
+  }
+
+  .release-archived-text {
+    font-size: 0.8em;
+    font-weight: bold;
+    padding: 0px;
+    margin: 3px 0px 0px 0px;
+  }
+
+  .release-manager {
+    color: red;
+  }
+</style>
+
+<div class="col-md-10">
+  <h4>
+    {{data.Path.Title}}
+    <span ng-if="initialiseEdit && data.CycleCount > 1">&nbsp;(Cycle&nbsp;{{data.CycleCount}})</span>
+    <br /><small><i>{{data.Path.OriginatorDescription}}</i></small>
+  </h4>
+</div>
+<div class="col-md-2">
+  <button type="button" class="btn btn-danger pull-right" ng-click="abort()" ng-show="!initialiseEdit && canAbort && !releaseCycle.PathLog.Completed">Abort</button>
+</div>
+<div class="clearfix"></div>
+<div ng-if="!initialiseEdit && data.PathCycles.length > 1">
+  <div class="pull-left">Approval cycle:&nbsp;</div>
+  <div class="pull-left">
+    <ul class="pagination pagination-sm" style="margin-top:0px;">
+      <li ng-repeat="pathCycle in data.PathCycles" ng-class="{active: releaseCycleIndex == $index}" ng-click="changeCycle($index)" style="cursor:pointer;"><a>{{$index + 1}}</a></li>
+    </ul>
+  </div>
+  <div class="clearfix"></div>
+</div>
+
+<div ng-if="initialiseEdit && releaseCycle.CantProceed_MissingPerson" class="release-blocker">
+  <div class="pull-left release-blocker-icon">
+    <i class="release-icon icon-user-cancel2"></i>
+  </div>
+  <div class="pull-left">
+    <h4>
+      Unable to proceed. VisualFactory was unable to determine suitable approvers for one or more approvals.
+    </h4>
+  </div>
+  <div class="clearfix"></div>
+</div>
+
+<div ng-if="!initialiseEdit && releaseCycle.Blocker" class="release-blocker">
+  <div class="pull-left release-blocker-icon">
+    <!--Reject--><i ng-if="releaseCycle.Blocker.StatusID == 9" class="release-icon icon-file-minus2"></i>
+    <!--Rework--><i ng-if="releaseCycle.Blocker.StatusID == 10" class="release-icon icon-file-upload2"></i>
+    <span ng-if="releaseCycle.Blocker.StatusID == 10">
+      <br /><br />
+      <i class="release-icon icon-lock"></i>
+    </span>
+  </div>
+  <div class="pull-left">
+    <h4>
+      <span ng-if="releaseCycle.Blocker.StatusID == 9">This cycle has been rejected.</span><span ng-if="releaseCycle.Blocker.StatusID == 9 && !userIsInitiator && !userIsInitiatorsManager && VersionStatus == 'Authorising' && isLatestCycle">&nbsp;No further approvals are required. The process initiator must now return the {{versionType}} Version to Draft.</span><span ng-if="releaseCycle.Blocker.StatusID == 9 && (userIsInitiator || userIsInitiatorsManager) && VersionStatus == 'Authorising' && isLatestCycle">&nbsp;You must now return the {{versionType}} Version to Draft.</span>
+      <span ng-if="releaseCycle.Blocker.StatusID == 10">This cycle has been returned for rework. </span><span ng-if="releaseCycle.Blocker.StatusID == 10 && !userIsInitiator && !userIsInitiatorsManager && VersionStatus == 'Authorising' && isLatestCycle">&nbsp;Approvals will continue when the below issues have been addressed.</span><span ng-if="releaseCycle.Blocker.StatusID == 10 && (userIsInitiator || userIsInitiatorsManager) && VersionStatus == 'Authorising' && isLatestCycle"><span ng-show="noteCount > 0">{{noteCountString}}</span>&nbsp;You must now return the {{versionType}} Version to Draft.</span>
+    </h4>
+    <blockquote>
+      <p>{{releaseCycle.Blocker.Comments}}</p>
+      <footer>{{releaseCycle.Blocker.Approver.FullName}},&nbsp;<cite title="{{releaseCycle.Blocker.BlockerDate | amDateFormat:'lll'}}">{{releaseCycle.Blocker.BlockerDate | amDateFormat:'lll'}}</cite></footer>
+    </blockquote>
+  </div>
+  <div class="clearfix"></div>
+  <div ng-if="(userIsInitiator || userIsInitiatorsManager) && VersionStatus == 'Authorising' && isLatestCycle" class="container-fluid text-right">
+    <button class="btn btn-primary" ng-click="returnToDraft()">
+      Return to Draft
+    </button>
+  </div>
+</div>
+
+<div ng-if="!initialiseEdit && releaseCycle.Approved" class="release-approved">
+  <div class="pull-left release-blocker-icon">
+    <!--Approve--><i class="release-icon icon-file-check2"></i>
+  </div>
+  <div class="pull-left">
+    <h4>
+      <span>This cycle has been unanimously approved.</span><span ng-if="(userIsInitiator || userIsInitiatorsManager) && VersionStatus == 'Authorising'">&nbsp;You must now Authorise the {{versionType}} Version.</span>
+    </h4>
+  </div>
+  <div class="clearfix"></div>
+  <div ng-if="(userIsInitiator || userIsInitiatorsManager) && VersionStatus == 'Authorising' && isLatestCycle" class="container-fluid text-right">
+    <button class="btn btn-success" ng-click="authorise()">
+      Authorise
+    </button>
+  </div>
+</div>
+
+<div ng-if="!initialiseEdit && !releaseCycle.Blocker && !releaseCycle.Approved && (assignedToUser || canRespondToSomeoneElses || canRespondAsManager)" class="bg-info release-info">
+  <div class="pull-left release-blocker-icon">
+    <i class="release-icon icon-info2"></i>
+  </div>
+  <div class="pull-left">
+    <h4 ng-if="assignedToUser">
+      <span>
+        <i class="release-icon-small icon-user3"></i><span style="vertical-align: middle;">&nbsp;An approval is assigned to you.</span>
+      </span>
+    </h4>
+    <h4 ng-if="canRespondToSomeoneElses">
+      <span>
+        <i class="release-icon-small icon-user4"></i><span style="vertical-align: middle;">&nbsp;There are approvals assigned to others which you have the right to respond to <strong>as their peer</strong>.</span>
+      </span>
+    </h4>
+    <h4 ng-if="canRespondAsManager">
+      <span>
+        <i class="release-icon-small icon-user4 release-manager"></i><span style="vertical-align: middle;">&nbsp;There are approvals assigned to others which you have the right to respond to <strong>as their manager</strong>.</span>
+      </span>
+    </h4>
+  </div>
+  <div class="clearfix"></div>
+</div>
+
+<table class="table table-bordered" ng-if="releaseCycle">
+  <thead>
+    <tr class="grey">
+      <th>Gate</th>
+      <th>Approval</th>
+      <th ng-if="!initialiseEdit">Comments</th>
+      <th ng-if="!initialiseEdit">Decision</th>
+      <th ng-if="!initialiseEdit">Responded</th>
+      <th ng-if="isInitialiseRework"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat-start="gateStatus in releaseCycle.GateStatuses"
+        ng-init="approvalLog = gateStatus.ApprovalStatuses[0].ApprovalLog;
+                  userCanRespond = canRespond(gateStatus.GateLog, approvalLog) && VersionStatus == 'Authorising';
+                  userIsApprover = isApprover(approvalLog);
+                  userIsManager = isManager(approvalLog);
+                  approverIsAssignedPerson = approverIsAssigned(approvalLog);
+                  gateRowClass = rowClass('Gate', gateStatus.GateLog, approvalLog, gateStatus.ApprovalStatuses);
+                  approvalRowClass = rowClass('Approval', gateStatus.GateLog, approvalLog);">
+      <td rowspan="{{gateStatus.ApprovalStatuses.length}}" ng-class="gateRowClass">
+        <h4>{{gateStatus.Gate.Title}}<br /><small><i>{{gateStatus.Gate.GateDescription}}</i></small></h4>
+        <span ng-if="!initialiseEdit && gateStatus.GateLog.Started"><strong>Started:</strong><br />{{gateStatus.GateLog.Started  | amDateFormat:'lll'}}</span>
+      </td>
+      <td ng-class="approvalRowClass">
+        <div class="col-md-1">
+          <div ng-if="userCanRespond">
+            <i ng-if="userIsApprover" class="release-icon-medium icon-user3"></i>
+            <i ng-if="!userIsApprover && !userIsManager" class="release-icon-medium icon-user4"></i>
+            <i ng-if="!userIsApprover && userIsManager" class="release-icon-medium icon-user4 release-manager"></i>
+          </div>
+          <i ng-if="!userCanRespond" class="release-icon-medium icon-user3 release-person-faded"></i>
+        </div>
+        <div class="col-md-11">
+          <strong>{{gateStatus.ApprovalStatuses[0].Approval.RoleDescription}}</strong><br />
+          <div ng-if="!approvalLog.NoPersonReason">
+            <div ng-if="(!initialiseEdit && !editStatus) || locked || (editStatus && gateStatus.GateLog.Started) || (initialiseEdit && approvalLog.Completed)">
+              <span ng-style="{'text-decoration' : approverIsAssignedPerson ? '' : 'line-through'}">{{approvalLog.AllocatedPerson.FullName}}</span>
+              <span ng-if="!approverIsAssignedPerson">&nbsp;{{approvalLog.ApprovedPerson.FullName}}</span>
+              <br />
+            </div>
+            <div ng-if="(initialiseEdit && !approvalLog.Completed) || (editStatus && !gateStatus.GateLog.Started && !locked)" edit-textbox edit-mode="true" edit-dropdown="true" dropdown-options="approvalLog.AlternativePeople" dropdown-display-field="'FullName'" dropdown-display-id="'PersonID'" dropdown-selected-id="approvalLog.AllocatedPersonID" new-text="approvalLog.AllocatedPersonID != changedtext ? changeApprover(approvalLog, changedtext) : approvalLog.AllocatedPersonID = approvalLog.AllocatedPersonID"></div>
+          </div>
+          <div ng-if="approvalLog.NoPersonReason">
+            <small>
+              Unable to determine a suitable approver:<br />
+              {{approvalLog.NoPersonReason}}
+            </small>
+          </div>
+        </div>
+
+      </td>
+      <td ng-if="!initialiseEdit" ng-class="approvalRowClass">
+        <div ng-if="approvalLog.Completed">
+          <span>{{approvalLog.Comments}}</span>
+        </div>
+        <div ng-if="userCanRespond" edit-textbox edit-mode="true" edit-text-area="true" original-text="approvalLog.Comments" new-text="approvalLog.Comments != changedtext ? saveApprovalLog(approvalLog, 'Comments', changedtext) : approvalLog.Comments = approvalLog.Comments"></div>
+      </td>
+      <td ng-if="!initialiseEdit" ng-class="approvalRowClass">
+        <div ng-if="!approvalLog.saving" class="text-center">
+          <!--Approve--><i ng-if="!initialiseEdit && approvalLog.StatusID == 5" class="release-icon icon-file-check2"></i>
+          <!--Reject--><i ng-if="!initialiseEdit && approvalLog.StatusID == 9" class="release-icon icon-file-minus2"></i>
+          <!--Rework--><i ng-if="!initialiseEdit && approvalLog.StatusID == 10" class="release-icon icon-file-upload2"></i>
+
+          <!--Waiting-->
+          <i ng-if="!userCanRespond && !initialiseEdit && gateStatus.GateLog.Started && !approvalLog.Completed && !locked" class="release-icon icon-clock2"></i>
+          <div ng-if="userCanRespond" class="text-center">
+            <div edit-textbox edit-mode="true" edit-icon-select="true" icon-options="decisions" icon-selected-id="approvalLog.StatusID" new-text="changeStatus(approvalLog, changedtext)"></div>
+          </div>
+
+          <!--Archived-->
+          <p ng-if="approvalLog.Archived" class="release-archived-text text-center">ARCHIVED</p>
+        </div>
+
+        <!--Saving-->
+        <div ng-if="approvalLog.saving" class="text-center">
+          <spinner type="fa-cog" size="fa-3x" show="approvalLog.saving"></spinner>
+        </div>
+      </td>
+      <td ng-if="!initialiseEdit" ng-class="approvalRowClass">
+        <div ng-if="approvalLog.Completed">
+          <span>{{approvalLog.Completed | amDateFormat:'lll'}}</span>
+        </div>
+        <div ng-if="!approvalLog.Completed && approvalLog.NewStatusID && approvalLog.NewStatusID != 3 && (approvalLog.Comments.length > 0 || approvalLog.NewStatusID == 5) && !approvalLog.saving">
+          <button class="btn btn-success" type="button" ng-click="confirm(approvalLog)">Confirm Decision</button>
+        </div>
+      </td>
+      <td ng-if="isInitialiseRework" ng-class="approvalRowClass">
+        <!--Approve--><i ng-if="approvalLog.StatusID == 5" class="release-icon icon-file-check2"></i>
+        <!--Send--><i ng-if="approvalLog.StatusID == 3" class="release-icon icon-arrow-right16"></i>
+      </td>
+    </tr>
+
+    <tr ng-repeat-end ng-repeat="approvalStatus in gateStatus.ApprovalStatuses" ng-hide="$first"
+        ng-init="approvalLog = approvalStatus.ApprovalLog;
+                  userCanRespond = canRespond(gateStatus.GateLog, approvalLog) && VersionStatus == 'Authorising';
+                  userIsApprover = isApprover(approvalLog);
+                  userIsManager = isManager(approvalLog);
+                  approverIsAssignedPerson = approverIsAssigned(approvalLog);
+                  gateRowClass = rowClass('Gate', gateStatus.GateLog, approvalLog, gateStatus.ApprovalStatuses);
+                  approvalRowClass = rowClass('Approval', gateStatus.GateLog, approvalLog);">
+      <td ng-class="approvalRowClass">
+        <div class="col-md-1">
+          <div ng-if="userCanRespond">
+            <i ng-if="userIsApprover" class="release-icon-medium icon-user3"></i>
+            <i ng-if="!userIsApprover && !userIsManager" class="release-icon-medium icon-user4"></i>
+            <i ng-if="!userIsApprover && userIsManager" class="release-icon-medium icon-user4 release-manager"></i>
+          </div>
+          <i ng-if="!userCanRespond" class="release-icon-medium icon-user3 release-person-faded"></i>
+        </div>
+        <div class="col-md-11">
+          <strong>{{approvalStatus.Approval.RoleDescription}}</strong><br />
+          <div ng-if="!approvalLog.NoPersonReason">
+            <div ng-if="(!initialiseEdit && !editStatus) || locked || (editStatus && gateStatus.GateLog.Started) || (initialiseEdit && approvalLog.Completed)">
+              <span ng-style="{'text-decoration' : approverIsAssignedPerson ? '' : 'line-through'}">{{approvalLog.AllocatedPerson.FullName}}</span>
+              <span ng-if="!approverIsAssignedPerson">&nbsp;{{approvalLog.ApprovedPerson.FullName}}</span>
+              <br />
+            </div>
+            <div ng-if="(initialiseEdit && !approvalLog.Completed) || (editStatus && !gateStatus.GateLog.Started && !locked)" edit-textbox edit-mode="true" edit-dropdown="true" dropdown-options="approvalLog.AlternativePeople" dropdown-display-field="'FullName'" dropdown-display-id="'PersonID'" dropdown-selected-id="approvalLog.AllocatedPersonID" new-text="approvalLog.AllocatedPersonID != changedtext ? changeApprover(approvalLog, changedtext) : approvalLog.AllocatedPersonID = approvalLog.AllocatedPersonID"></div>
+          </div>
+          <div ng-if="approvalLog.NoPersonReason">
+            <small>
+              Unable to determine a suitable approver:<br />
+              {{approvalLog.NoPersonReason}}
+            </small>
+          </div>
+        </div>
+      </td>
+      <td ng-if="!initialiseEdit" ng-class="approvalRowClass">
+        <div ng-if="approvalLog.Completed">
+          <span>{{approvalLog.Comments}}</span>
+        </div>
+        <div ng-if="userCanRespond" edit-textbox edit-mode="true" edit-text-area="true" original-text="approvalLog.Comments" new-text="approvalLog.Comments != changedtext ? saveApprovalLog(approvalLog, 'Comments', changedtext) : approvalLog.Comments = approvalLog.Comments"></div>
+      </td>
+      <td ng-if="!initialiseEdit" ng-class="approvalRowClass">
+        <div ng-if="!approvalLog.saving" class="text-center">
+          <!--Approve--><i ng-if="!initialiseEdit && approvalLog.StatusID == 5" class="release-icon icon-file-check2"></i>
+          <!--Reject--><i ng-if="!initialiseEdit && approvalLog.StatusID == 9" class="release-icon icon-file-minus2"></i>
+          <!--Rework--><i ng-if="!initialiseEdit && approvalLog.StatusID == 10" class="release-icon icon-file-upload2"></i>
+
+          <!--Waiting-->
+          <i ng-if="!userCanRespond && !initialiseEdit && gateStatus.GateLog.Started && !approvalLog.Completed && !locked" class="release-icon icon-clock2"></i>
+          <div ng-if="userCanRespond" class="text-center">
+            <div edit-textbox edit-mode="true" edit-icon-select="true" icon-options="decisions" icon-selected-id="approvalLog.StatusID" new-text="changeStatus(approvalLog, changedtext)"></div>
+          </div>
+
+          <!--Archived-->
+          <p ng-if="approvalLog.Archived" class="release-archived-text text-center">ARCHIVED</p>
+        </div>
+
+        <!--Saving-->
+        <div ng-if="approvalLog.saving" class="text-center">
+          <spinner type="fa-cog" size="fa-3x" show="approvalLog.saving"></spinner>
+        </div>
+      </td>
+      <td ng-if="!initialiseEdit" ng-class="approvalRowClass">
+        <div ng-if="approvalLog.Completed">
+          <span>{{approvalLog.Completed | amDateFormat:'lll'}}</span>
+        </div>
+        <div ng-if="!approvalLog.Completed && approvalLog.NewStatusID && approvalLog.NewStatusID != 3 && (approvalLog.Comments.length > 0  || approvalLog.NewStatusID == 5) && !approvalLog.saving">
+          <button class="btn btn-success" type="button" ng-click="confirm(approvalLog)">Confirm Decision</button>
+        </div>
+      </td>
+      <td ng-if="isInitialiseRework" ng-class="approvalRowClass">
+        <!--Approve--><i ng-if="approvalLog.StatusID == 5" class="release-icon icon-file-check2"></i>
+        <!--Send--><i ng-if="approvalLog.StatusID == 3" class="release-icon icon-arrow-right16"></i>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div ng-if="!releaseCycle">
+  No records to display
+</div>

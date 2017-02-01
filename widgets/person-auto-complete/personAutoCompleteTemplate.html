@@ -1,0 +1,4 @@
+﻿<a class="clickable">
+  <img ng-src="/image?type=Person&maxwidth=30&maxheight=30&id={{match.model.PersonID}}">
+  <span ng-bind-html="match.label | typeaheadHighlight:query"></span>
+</a>

@@ -1,0 +1,9 @@
+﻿  <input type="text"
+         class="form-control"
+         ng-model="person"
+         typeahead="p as p.FullName for p in getPeople($viewValue)"
+         placeholder="Search for a person"
+         typeahead-min-length="2"
+         typeahead-wait-ms="300"
+         typeahead-template-url="/App_Portal/components/widgets/person-auto-complete/personAutoCompleteTemplate.html" 
+         focus-me="focusOnLoad" />

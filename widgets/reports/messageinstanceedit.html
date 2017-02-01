@@ -1,0 +1,76 @@
+﻿<div class="modal-header">
+  <h4>{{dialogTitleText}}</h4>
+</div>
+<div class="modal-body">
+  <div ng-if="dashboardLocations && !selectedInstance.MessageInstanceID">
+    <div class="form-group">
+      <label for="multi_locations">Dashboard Location: </label>
+      <div ng-show="dashboardLocations.length > 1">(ctrl + click to select multiple)</div>
+      <select id="multi_locations" multiple class="form-control" ng-multiple="true" ng-model="selectedInstance.Location" ng-options="dl as dl.LocationName for dl in dashboardLocations" ng-click="deselectAll()"></select>
+    </div>
+    <div class="checkbox" ng-show="dashboardLocations.length > 1">
+      <label>
+        <input type="checkbox" ng-model="allLocationsSelected" />All Locations
+      </label>
+    </div>
+  </div>
+
+
+  <div ng-if="dashboardEditLocations  && selectedInstance.MessageInstanceID  && !managerEdit">
+    <div class="form-group">
+      <label for="dashboardLocation">Dashboard Location:</label>
+      <select id="dashboardLocation" class="form-control" ng-model="selectedInstance.Location" ng-options="dl as dl.LocationName for dl in dashboardEditLocations"></select>
+    </div>
+  </div>
+
+
+  <div class="form-inline" ng-show="selectedInstance.MessageType == 1 || message.MessageType == 1">
+    <div class="form-group">
+      <label for="displayTime">Display time:</label>
+      <input type="text" id="displayTime" class="form-control" ng-model="selectedInstance.DisplayTimeSecs">&nbsp;seconds
+    </div>
+    <div class="form-group">
+      <label for="timeFrequency">Frequency:</label>
+      <form id="timeFrequency">
+        <input type="radio" ng-model="selectedInstance.Frequency" ng-value="1">Every cycle<br />
+        <input type="radio" ng-model="selectedInstance.Frequency" ng-value="'n'">Once in every&nbsp;
+        <select class="genericinput mfhinput" style="width: 5em;" ng-model="selectedInstance.selectedFrequency" ng-options="fq as fq.text for fq in frequencyDropdown" ng-disabled="selectedInstance.Frequency == 1"></select>
+        &nbsp;cycles
+      </form>
+    </div>
+  </div>
+
+
+  <div class="form-group form-inline">
+    <label for="dateFrom">Display from:</label>
+    <div class="dashboard dates-text-edit-box" edit-textbox edit-datepicker="true" placeholder="Date" id="dateFrom" original-text="selectedInstance.DisplayFrom" new-text="selectedInstance.DisplayFrom = changedtext;" edit-mode="true" />
+    <select class="form-control" ng-model="selectedInstance.DisplayFromHours" ng-options="hr as hr.text for hr in hoursDropdown"></select>
+    <select class="form-control" ng-model="selectedInstance.DisplayFromMins" ng-options="mn as mn.text for mn in minsDropdown"></select>
+  </div>
+
+
+  <div class="form-group">
+    <label>Display to:</label>
+    <div class="radio">
+      <label>
+        <input type="radio" ng-model="selectedInstance.DisplayIndefinitely" ng-value="true">Display indefinitely
+      </label>
+    </div>
+    <div class="radio form-inline">
+      <label>
+        <input type="radio" ng-model="selectedInstance.DisplayIndefinitely" ng-value="false">
+        <input type="text" class="form-control" ng-show="selectedInstance.DisplayIndefinitely" disabled />
+        <div class="dashboard dates-text-edit-box" edit-textbox edit-datepicker="true" placeholder="Date" id="dateTo" ng-show="!selectedInstance.DisplayIndefinitely" original-text="selectedInstance.DisplayTo" new-text="selectedInstance.DisplayTo = changedtext;" edit-mode="true" />
+        <select class="form-control" ng-model="selectedInstance.DisplayToHours" ng-options="hr as hr.text for hr in hoursDropdown" ng-disabled="selectedInstance.DisplayIndefinitely"></select>
+        <select class="form-control" ng-model="selectedInstance.DisplayToMins" ng-options="mn as mn.text for mn in minsDropdown" ng-disabled="selectedInstance.DisplayIndefinitely"></select>
+      </label>
+    </div>
+  </div>
+
+
+</div>
+
+<div class="modal-footer">
+  <button type="button" class="btn btn-success btn-sm" ng-click="saveMessageInstance()">Update</button>
+  <span ng-show="errorMessage.length > 0">{{errorMessage}}</span>
+</div>

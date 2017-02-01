@@ -1,0 +1,424 @@
+﻿<script type="text/ng-template" id="uploadedDocType">
+  <div class="ui-grid-cell-contents" title="TOOLTIP">
+    <span>{{row.entity.LibDocType ? row.entity.LibDocType.DocType : row.entity.LinkDocType.DocType}}</span>
+  </div>
+</script>
+
+<script type="text/ng-template" id="Author">
+  <div class="ui-grid-cell-contents">
+    <span>{{row.entity.Author.FullName}}</span>
+  </div>
+</script>
+
+
+<script type="text/ng-template" id="Tags">
+  <div class="ui-grid-cell-contents">
+    <span ng-repeat="tag in row.entity.Tags">{{grid.appScope.vm.tagLookup[tag.TagID].TagName}}{{$last ? '' : ','}} </span>
+  </div>
+</script>
+
+<script type="text/ng-template" id="tag">
+  <div style="padding: 0 5px; height: 24px; border-radius: 3px; border: 1px solid #a1a1a1; background-color:#a1a1a1;  margin:0px -5px 0px -5px" title="{{$getDisplayText()}}">
+    <span style="color:white; font-size:14px;">{{$getDisplayText()}}</span>
+    <a class="remove-button" style="color:white; font-size:14px; " ng-click="$removeTag()">&#10006;</a>
+  </div>
+</script>
+
+<script type="text/ng-template" id="DateCreated">
+  <div class="ui-grid-cell-contents">
+    <span>{{row.entity.DateCreated | amDateFormat: 'lll'}}</span>
+  </div>
+</script>
+
+<script type="text/ng-template" id="Uses">
+  <div class="ui-grid-cell-contents">
+    <span>{{row.entity.WhereUsed.length}}</span>
+  </div>
+</script>
+
+<script type="text/ng-template" id="addButton">
+  <div class="ui-grid-cell-contents pinned-column-edit pull-right" style="margin:0px; padding:0px; position:relative; width:100%; height:100%;">
+    <button style="position:absolute; bottom:6px; right:25px;" ng-if="!row.entity.Referenced" type="button" class="btn btn-default" title="Add" ng-click="grid.appScope.vm.addExistingRef(row.entity)">
+      <i aria-hidden="true" class="icon-plus-circle"></i>
+    </button>
+  </div>
+</script>
+
+<!--<script type="text/ng-template" id="rowTemplate">
+  <div ng-mouseover="row.enity.Hovered = true" ng-mouseleave="row.enity.Hovered = false;" ng-click="grid.appScope.vm.addExistingRef(row.entity)">
+    <div ng-style="row.entity.Selected || row.enity.Hovered ? {'background-color' : '#ecf5ff', 'cursor' : 'pointer'} : {}" ng-repeat="(colRenderIndex, col) in colContainer.renderedColumns track by col.uid" ui-grid-one-bind-id-grid="rowRenderIndex + '-' + col.uid + '-cell'"
+         class="ui-grid-cell" ng-class="{ 'ui-grid-row-header-cell': col.isRowHeader }" role="{{col.isRowHeader ? 'rowheader' : 'gridcell'}}" ui-grid-cell>
+    </div>
+  </div>
+</script>-->
+
+<style>
+  .ui-grid-top-panel {
+    min-height: 45px;
+  }
+
+  .ui-grid-cell-contents {
+    padding: 14px 8px;
+    box-sizing: border-box;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    height: 100%;
+  }
+</style>
+
+<form name="vm.form" novalidate ng-submit="submit()">
+  <div class="modal-header">
+    <h4 class="modal-title">Add Reference</h4>
+  </div>
+  <div class="modal-body">
+    <div class="form-horizontal">
+
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Method</label>
+        <div class="col-sm-10">
+          <div class="checkbox">
+            <label>
+              <input focus-me="true" type="radio" name="optionsRadiosMethod" ng-model="vm.method" ng-click="vm.resetErrors()" id="Link" value="link"> Web Link
+            </label>
+            <label>
+              <input type="radio" name="optionsRadiosMethod" ng-model="vm.method" ng-click="vm.resetErrors()" id="Network" value="network"> Network Link
+            </label>
+            <label>
+              <input type="radio" name="optionsRadiosMethod" ng-model="vm.method" id="Upload" ng-click="vm.resetErrors()" value="upload"> Upload (<40MB)
+            </label>
+            <span ng-show="vm.AddLink">
+              <label>
+                <input type="radio" name="optionsRadiosMethod" ng-model="vm.method" id="Task" ng-click="vm.resetErrors()" value="task"> Task
+              </label>
+              <label>
+                <input type="radio" name="optionsRadiosMethod" ng-model="vm.method" id="Route" ng-click="vm.resetErrors()" value="route"> Route
+              </label>
+              <label>
+                <input type="radio" name="optionsRadiosMethod" ng-model="vm.method" id="AddExisting" ng-click="vm.resetErrors()" value="addExisting"> Add Existing
+              </label>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div ng-if="vm.method === 'link' || vm.method === 'upload' || vm.method === 'network'">
+
+        <div class="form-group" ng-class="{'has-error': (vm.form.$submitted || vm.form.Description.$touched) && !vm.form.Description.$valid}">
+          <label for="txtDescription" class="col-sm-2 control-label">Description</label>
+          <div class="col-sm-10">
+            <!--Below text box has been duplicated to remove error formatting when switching for link to upload while keeping autofocus-->
+            <input ng-if="vm.method === 'link'" focus-me="true" type="text" name="Description" class="form-control" id="txtDescription" placeholder="Description for the Document and the Reference" ng-model="vm.refLink.LinkText" required autocomplete="off" maxlength="250">
+            <input ng-if="vm.method === 'upload'" focus-me="true" type="text" name="Description" class="form-control" id="txtDescription" placeholder="Description for the Document and the Reference" ng-model="vm.refLink.LinkText" required autocomplete="off" maxlength="250">
+            <input ng-if="vm.method === 'network'" focus-me="true" type="text" name="Description" class="form-control" id="txtDescription" placeholder="Description for the Document and the Reference" ng-model="vm.refLink.LinkText" required autocomplete="off" maxlength="250">
+          </div>
+        </div>
+
+        <div class="form-group" ng-class="{'has-error': (vm.form.$submitted || vm.form.LibDocTypeID.$touched) && !vm.form.LibDocTypeID.$valid}">
+          <label for="inputRefDocType" class="col-sm-2 control-label">Document Type</label>
+          <div class="col-sm-10">
+            <select class="form-control" name="LibDocTypeID" ng-model="vm.refLink.RefLinkTypeID" id="inputRefDocType" ng-change="vm.checkStartPath()" ng-options="p.LibDocTypeID as p.DocType for p in vm.libDocTypes" required></select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="dateCreated" class="col-sm-2 control-label">Date Created</label>
+          <div class="col-sm-10">
+            <span id="dateCreated" date-time-picker datepickeronly="true" defaultdate="vm.refLink.DateCreated" useclearfunction="true" dontexceednow="true" clearfunction="vm.clearDateCreated()" showclear="true" ng-model="vm.refLink.DateCreated"></span>
+          </div>
+        </div>
+
+        <div ng-if="vm.method === 'link'">
+
+          <div class="form-group" ng-class="{'has-error': (vm.form.$submitted || vm.form.LinkURL.$touched) && !vm.form.LinkURL.$valid}">
+            <label for="LinkURL" class="col-sm-2 control-label">Link URL</label>
+            <div class="col-sm-10">
+              <!--ng-pattern="/^((http[s]?://)|(\\\\)|(/)).+/"-->
+              <input type="text" name="LinkURL" class="form-control" id="LinkURL" placeholder="Link URL" ng-model="vm.refLink.LinkContent" required autocomplete="off" maxlength="500">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="linkTags" class="col-sm-2 control-label">Tags</label>
+            <div class="col-sm-10">
+              <tag-list tags="vm.tags"></tag-list>
+            </div>
+          </div>
+
+        </div>
+
+        <div ng-if="vm.method === 'network'">
+
+          <div class="form-group" ng-class="{'has-error': (vm.form.$submitted || vm.form.FileURL.$touched) && !vm.form.FileURL.$valid}">
+            <label class="col-sm-2 control-label">File URL</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" ng-model="vm.filePath" id="FileURL" name="FileURL" placeholder="File URL" required>
+            </div>
+
+            <!-- Old browse button code -->
+            <!--<label for="linkBrowse" class="col-sm-10 no-margin">
+              <input type="text" class="form-control fileInputText" ng-model="vm.filePath" id="filePathInputBox" placeholder="File URL">
+              <span class="fileInputButton">
+                Browse
+              </span>
+            </label>
+            <input ng-show="false" type="file" ngf-select="vm.onFileSelect([$file])" name="linkBrowse" id="linkBrowse">-->
+          </div>
+
+          <div class="form-group row">
+            <label for="linkTags" class="col-sm-2 control-label">Tags</label>
+            <div class="col-sm-10">
+              <tag-list tags="vm.tags"></tag-list>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      <div ng-if="vm.method === 'upload'">
+
+        <div class="form-group row" ng-if="dropSupported">
+          <label for="dragAndDrop" class="col-sm-2 control-label">Drag And Drop</label>
+          <div class="col-sm-10">
+            <div class="drop-box" ngf-drop="vm.onFileSelect($files);" ngf-drag-over-class="'selected-border'">
+              <img src="/Content/images/camera.png" class="drop-box-image" />
+              <div>
+                <div ng-if="!vm.file">&nbsp;</div>
+                <div ng-if="vm.file">{{vm.file.name}} Added Successfully</div>
+                <h4>Drag and drop a file here</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="dragAndDrop" class="col-sm-2 control-label">Browse</label>
+          <div class="col-sm-10">
+            <div class="btn btn-default btn-file" ngf-select="vm.onFileSelect([$file])">
+              <span>Choose file</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="SelectedFile" class="col-sm-2 control-label">Selected File</label>
+          <div class="col-sm-10">
+            <div style="margin-top:7px;">
+              <span ng-if="!vm.file">No File Selected</span>
+              <span ng-if="vm.file">{{vm.file.name}}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="linkTags" class="col-sm-2 control-label">Tags</label>
+          <div class="col-sm-10">
+            <tag-list tags="vm.tags"></tag-list>
+          </div>
+        </div>
+
+      </div>
+
+      <div ng-if="vm.method === 'task'">
+        <div class="col-xs-12" task-search set-tasks="vm.refTasks = tasks;vm.taskSearching = false;vm.tasksPager.currentPage = 1; vm.tasksPager.orderByField = ''; vm.tasksPager.orderByField = false;vm.checkTasks();" show-add="false" cache-id="addReferenceModal"></div>
+        <div>&nbsp;</div>
+        <table class="table table-striped table-bordered" style="margin-bottom:20px;">
+          <thead>
+            <tr class="active">
+              <th style="width:100px;"><span class="tableheadingcontain" ng-click="vm.orderByField='TaskID'; vm.reverseSort = !vm.reverseSort">Task ID<span ng-show="vm.orderByField == 'TaskID'"><span ng-show="vm.reverseSort" class="caret invert sortable"></span><span ng-show="!vm.reverseSort" class="caret invert sortable asc"></span></span></span></th>
+              <th><span class="tableheadingcontain" ng-click="vm.orderByField='TaskRef'; vm.reverseSort = !vm.reverseSort">Task Ref<span ng-show="vm.orderByField == 'TaskRef'"><span ng-show="vm.reverseSort" class="caret invert sortable"></span><span ng-show="!vm.reverseSort" class="caret invert sortable asc"></span></span></span></th>
+              <th><span class="tableheadingcontain" ng-click="vm.orderByField='TaskName'; vm.reverseSort = !vm.reverseSort">Task Name<span ng-show="vm.orderByField == 'TaskName'"><span ng-show="vm.reverseSort" class="caret invert sortable"></span><span ng-show="!vm.reverseSort" class="caret invert sortable asc"></span></span></span></th>
+              <th class="fixedwd70col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr dir-paginate="task in vm.refTasks | itemsPerPage: vm.tasksPager.pageSize: 'tbltasks'" pagination-id="tbltasks" current-page="vm.tasksPager.currentPage">
+              <td>{{ task.TaskID}}</td>
+              <td>{{ task.TaskRef }}</td>
+              <td>{{ task.TaskName }}</td>
+              <td class="tablecol-x-1-width">
+                <button type="button" ng-hide="task.linked" class="btn btn-default" ng-click="vm.addTaskLink(task)"><i class="fa fa-plus"></i> Add</button>
+              </td>
+            </tr>
+          </tbody>
+          <tfoot ng-show="vm.refTasks.length == 0">
+            <tr>
+              <td colspan="5">
+                No Results Found
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+        <div class="pagination-controls" dir-pagination-controls boundary-links="true" max-size="5" items-per-page-select="false" pagination-id="tbltasks" on-page-change="vm.tasksPager.currentPage = newPageNumber" on-items-per-page-change="vm.tasksPager.pageSize = newItemsPerPage"></div>
+      </div>
+
+      <div ng-if="vm.method === 'route'">
+        <div class="col-xs-12" route-search set-routes="vm.refRoutes = routes; vm.routeSearching = false; vm.routesPager.currentPage = 1; vm.routesPager.orderByField = ''; vm.routesPager.orderByField = false; vm.checkRoutes();" searching-for-routes="vm.routeSearching = true" show-add="false" cache-id="addReferenceModal"></div>
+        <hr class="hr" />
+        <table class="table table-striped table-bordered" style="margin-bottom:20px;">
+          <thead>
+            <tr class="active">
+              <th style="width:100px;"><span class="tableheadingcontain" ng-click="vm.orderByField='TaskID'; vm.reverseSort = !vm.reverseSort">Route ID<span ng-show="vm.orderByField == 'TaskID'"><span ng-show="vm.reverseSort" class="caret invert sortable"></span><span ng-show="!vm.reverseSort" class="caret invert sortable asc"></span></span></span></th>
+              <th><span class="tableheadingcontain" ng-click="vm.orderByField='TaskRef'; vm.reverseSort = !vm.reverseSort">Route Ref<span ng-show="vm.orderByField == 'TaskRef'"><span ng-show="vm.reverseSort" class="caret invert sortable"></span><span ng-show="!vm.reverseSort" class="caret invert sortable asc"></span></span></span></th>
+              <th><span class="tableheadingcontain" ng-click="vm.orderByField='TaskName'; vm.reverseSort = !vm.reverseSort">Route Name<span ng-show="vm.orderByField == 'TaskName'"><span ng-show="vm.reverseSort" class="caret invert sortable"></span><span ng-show="!vm.reverseSort" class="caret invert sortable asc"></span></span></span></th>
+              <th class="fixedwd70col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr dir-paginate="route in vm.refRoutes| itemsPerPage: vm.routesPager.pageSize: 'tblRoutes'" pagination-id="tblRoutes" current-page="vm.routesPager.currentPage">
+              <td>{{ route.RouteID }}</td>
+              <td>{{ route.RouteRef }}</td>
+              <td>{{ route.RouteName }}</td>
+              <td class="tablecol-x-1-width">
+                <button type="button" ng-hide="route.linked" class="btn btn-default" ng-click="vm.addRouteLink(route)"><i class="fa fa-plus"></i> Add</button>
+              </td>
+            </tr>
+          </tbody>
+          <tfoot ng-show="vm.refRoutes.length == 0">
+            <tr>
+              <td colspan="5">
+                No Results Found
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+        <div class="pagination-controls" dir-pagination-controls boundary-links="true" max-size="5" items-per-page-select="false" pagination-id="tblRoutes" on-page-change="vm.routesPager.currentPage = newPageNumber" on-items-per-page-change="vm.routesPager.pageSize = newItemsPerPage"></div>
+      </div>
+
+      <div ng-if="vm.method === 'addExisting'" class="form-horizontal">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group row">
+              <label for="linkTags" class="col-sm-2 control-label">Tags</label>
+              <div class="col-sm-10">
+                <tag-list tags="vm.addExistingTags"></tag-list>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="row form-group">
+              <label for="products" class="col-sm-2 control-label nowrap">Products</label>
+              <div class="col-sm-10">
+                <tags-input display-property="OptionCode" add-from-autocomplete-only="true" template="tag" id="products" name="products" ng-model="vm.searchObject.Products" placeholder="Add a product">
+                  <auto-complete source="vm.getAutoProdOptions($query)" min-length="0" load-on-focus="false" load-on-empty="false"></auto-complete>
+                </tags-input>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-6">
+            <!--Description-->
+
+            <div class="row form-group">
+              <label for="description" class="col-sm-4 control-label">Description</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" id="description" name="description" ng-model="vm.searchObject.Desc" />
+              </div>
+            </div>
+
+            <div class="row form-group">
+              <label for="author" class="col-sm-4 control-label">Author</label>
+              <div class="col-sm-8">
+                <input autocomplete="on" type="text" class="form-control" id="docAuthor" ng-model="vm.searchObject.Author.FullName" ng-change="vm.checkAuthorValidity()" typeahead="person.PersonID as person.FullName for person in vm.getAutoPeople($viewValue)" typeahead-on-select="vm.setAuthor($item)" />
+              </div>
+            </div>
+
+            <div class="row form-group">
+              <label for="createdAfter" class="col-sm-4 control-label">Created After</label>
+              <div class="col-sm-8">
+                <span id="createdAfter" date-time-picker datepickeronly="true" defaultdate="vm.searchObject.CreatedAfter" useclearfunction="true" dontexceednow="true" clearfunction="vm.clearCreatedAfter()" showclear="true" ng-model="vm.searchObject.CreatedAfter"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <!--Route/Task/Activity-->
+            <div class="row form-group">
+              <label for="fileType" class="col-sm-4 control-label">File Type</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" id="fileType" name="fileType" ng-model="vm.searchObject.FileType" />
+              </div>
+            </div>
+
+            <div class="row form-group">
+              <label for="documentType" class="col-sm-4 control-label">Document Type</label>
+              <div class="col-sm-8">
+                <input autocomplete="on" type="text" class="form-control" id="documentType" name="documentType" ng-model="vm.searchObject.DocumentType.DocType" ng-change="vm.checkDocumentTypeValidity()" typeahead="docType.DocTypeID as docType.DocType for docType in vm.docTypes" typeahead-on-select="vm.setDocumentType($item)" />
+              </div>
+            </div>
+
+            <div class="row form-group">
+              <label for="createdBefore" class="col-sm-4 control-label">Created Before</label>
+              <div class="col-sm-8">
+                <span id="createdBefore" date-time-picker datepickeronly="true" defaultdate="vm.searchObject.CreatedBefore" dontexceednow="true" useclearfunction="true" clearfunction="vm.clearCreatedBefore()" showclear="true" ng-model="vm.searchObject.CreatedBefore"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-3 col-xs-offset-1">
+            <div class="checkbox ">
+              <label for="searchLib">
+                <input type="checkbox" ng-model="vm.searchObject.searchLib" id="searchLib" />Show Uploaded
+              </label>
+            </div>
+          </div>
+          <div class="col-xs-2 col-xs-offset-3">
+            <div class="checkbox">
+              <label for="searchLink">
+                <input type="checkbox" ng-model="vm.searchObject.searchLink" id="searchLink" />Show Linked
+              </label>
+            </div>
+          </div>
+
+          <div class="col-xs-3">
+            <div class="btn-group pull-right">
+              <button type="button" class="btn btn-default bigger-icon" title="Clear" ng-click="vm.clear()"><i aria-hidden="true" class="icon-eraser"></i></button>
+              <button type="button" class="btn btn-default btn-search" title="Search" ng-click="vm.getDocs()" ng-disabled="vm.searchingLib || vm.searchingLink">
+                <spinner show="searching" colour="text-white"></spinner>
+                <i aria-hidden="true" class="icon-search"></i>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+        <hr class="bottom-hr hr" />
+        <div style="margin-top:20px;">
+          <div class="ui-grid" ui-grid="vm.addExistingGrid" ui-grid-resize-columns ui-grid-auto-resize ui-grid-move-columns window-flex-height ui-grid-pinning window-flex-height-offset="150"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-warning pull-right" ng-click="vm.close(vm.addedExisting)">Close</button>
+    <button ng-show="vm.method === 'link' || vm.method ==='network'" type="button" class="btn btn-success pull-right" ng-click="vm.createLink()" ng-disabled="vm.saving">
+      <spinner show="vm.saving" colour="text-white"></spinner>
+      <span>Save</span>
+    </button>
+    <button type="submit" ng-click="vm.uploadDoc()" class="btn btn-success pull-right" ng-disabled="vm.saving" ng-show="vm.method === 'upload'">Save</button>
+
+    <div ng-if="vm.method === 'link' || vm.method === 'network'" class="pull-right">
+      <div ng-show="vm.invalidURL" class="error-tooltip-container" uib-tooltip="Invalid URL. This URL could not be reached." tooltip-is-open="vm.invalidURLTooltip" tooltip-placement="bottom">
+        <i ng-if="vm.invalidURL" id="errormessage" type="danger" class="icon-warning"></i>
+      </div>
+    </div>
+
+    <div ng-if="vm.method === 'upload' || vm.method === 'network'" class="pull-right">
+      <div ng-show="vm.noFile" class="error-tooltip-container" uib-tooltip="Please select a file." tooltip-is-open="vm.noFileTooltip" tooltip-placement="bottom">
+        <i ng-if="vm.noFile && !vm.fileTooLarge" id="errormessage" type="danger" class="icon-warning"></i>
+      </div>
+      <div ng-show="vm.fileTooLarge" class="error-tooltip-container" uib-tooltip="Selected file is too large. Please select a file smaller than 40MB." tooltip-is-open="vm.fileTooLargeTooltip" tooltip-placement="bottom">
+        <i ng-if="vm.fileTooLarge" id="errormessage" type="danger" class="icon-warning"></i>
+      </div>
+    </div>
+
+  </div>
+</form>

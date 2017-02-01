@@ -1,0 +1,105 @@
+﻿<div class="edittextbox-widget fluid-container" ng-style="{'width' : width}">
+
+  <!--title text-->
+  <span class="title-text title-{{$id}}"
+        ng-class="{'active-text':editMode, 'non-active':!editMode}"
+        ng-show="!Editing && (originalText || !placeHolder) && !editCheckbox && !editIconSelect"
+        ng-click="editText()"
+        ng-bind-html="displayText"
+        ng-style="{'width' : width}">
+  </span>
+  <!-------------->
+  <!--active text-->
+  <span class="rv-active-text title-{{$id}}" ng-style="{'cursor': editMode ? 'pointer' : '', 'width' : width}" ng-show="originalText.length == 0 && !editCheckbox && !editIconSelect && !editTimeSpan" ng-click="editText()">{{placeHolder}}</span>
+  <!--------------->
+  <!--icon selection-->
+  <span class="title-text title-{{$parent.$id}}" ng-if="!Editing && editIconSelect" ng-class="{'active-text':editMode, 'non-active':!editMode}" ng-style="{'width' : width}" ng-click="editText()">
+    <i ng-class="selectedIcon.IconClass" style="font-size: 3em;"></i>
+  </span>
+  <!--icon selection-->
+  <!--checkbox span--->
+  <span class="active-text title-{{$parent.$id}}" ng-style="{'cursor': editMode ? 'pointer': '', 'width' : width}" ng-if="!Editing && editCheckbox" ng-click="editText()"><input type="checkbox" ng-checked="checkboxSelected" ng-disabled="true" /></span>
+  <!------------->
+  <!--inputs--->
+  <div class="active-text active-editing inputs-{{$parent.$id}}" ng-if="Editing" ng-style="{'width' : width}">
+
+    <!--text boxes--->
+    <div id="{{::tinyId}}" class="edittextbox-widget active-text" ng-style="{'width' : innerWidth}" ng-show="!editDropdown && !editTypeahead && !editCheckbox && !editPersonAutoComplete && !editDatepicker && !editProductAutoComplete && !editIconSelect && !editTimeSpan">
+      <input ng-if="!editTextArea && !editStyleArea && !editDropdown && !editTypeahead && !editCheckbox && !editPersonAutoComplete && !editDatepicker && !editProductAutoComplete && !editIconSelect" type="text" class="form-control title-text" return-key="saveText();" ng-model="$parent.$parent.EditingText" ng-disabled="!Editing || (editTextArea || editStyleArea || editDropdown || editCheckbox || editPersonAutoComplete || editDatepicker)" focus-me="Editing && !editTextArea" maxlength="{{maxLength}}" />
+      <textarea ng-if="editTextArea && !editStyleArea" rows="3" class="form-control" ng-model="$parent.$parent.EditingText" return-key="saveText();" focus-me="Editing && editTextArea" />
+      <textarea ng-if="editStyleArea" ui-tinymce="tinymceOptions" ng-model="$parent.$parent.EditingText"></textarea>
+    </div>
+    <!------------->
+    <!--check box--->
+    <input type="checkbox" class="form-control" ng-change="saveText()" ng-model="$parent.$parent.checkboxSelected" ng-if="editCheckbox" />
+    <!-------------->
+    <!--dropdown--->
+    <select class="form-control" ng-if="editDropdown" ng-options="s as s.DisplayName for s in $parent.$parent.DisplayOptions" ng-model="$parent.$parent.selectedOption"></select>
+    <!--typeahead-->
+    <input autocomplete="off" class="form-control" type="text" ng-if="editTypeahead" ng-model="$parent.$parent.selectedOption" typeahead="s as s.DisplayName for s in $parent.$parent.DisplayOptions | filter:$viewValue | limitTo:8">
+    <!------------->
+    <!--person autocomplete-->
+    <div ng-if="editPersonAutoComplete" person-auto-complete update-selected-person="updateSelectedPerson(PersonID, FullName)" exclude-person-id="person.PersonID" pre-populate="person.ReportsToFullName"></div>
+    <!----------------------->
+    <!--date picker-->
+    <div class="date-picker" ng-if="editDatepicker">
+      <datepicker ng-model="$parent.$parent.dateObj" show-weeks="true" class="well well-sm"></datepicker>
+    </div>
+    <!-------------->
+    <!--product autocomplete-->
+    <div ng-if="editProductAutoComplete" style="height:160px">
+      <input type="text" class="form-control" ng-model="$parent.$parent.EditingText" id="txtParentCode" ng-model-options="{debounce:500}" typeahead="p for p in getParts($viewValue, true)" /> <!--ng-keyup="$event.keyCode != 13 || search()" />-->
+    </div>
+    <!------------------------>
+    <!--icon selection-->
+    <div ng-if="editIconSelect" ng-style="{'width' : width}">
+      <div class="text-center" ng-style="{'width' : innerWidth, height:'20px'}"><small>{{iconDesc}}</small></div>
+      <ul class="pagination pagination-sm">
+        <li ng-repeat="iconOption in iconOptions" ng-if="!iconOption.Hidden" ng-class="{active: iconOption.ID == selectedIcon.ID}" ng-click="changeIcon(iconOption)" style="cursor:pointer;" ng-mouseenter="setIconDesc(iconOption.Desc)" ng-mouseleave="resetIconDesc()">
+          <a>
+            <i ng-class="iconOption.IconClass" style="font-size: 3em;"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <!------------------>
+    <!--timespan picker-->
+    <div ng-if="editTimeSpan">
+      <table>
+        <tr>
+          <th class="text-center">D</th>
+          <th class="text-center">H</th>
+          <th class="text-center">M</th>
+          <th class="text-center">S</th>
+        </tr>
+        <tr>
+          <td class="text-center" style="padding:2px;">
+            <input class="form-control title-text col-md-2 text-center" type="text" ng-model="$parent.$parent.timeSpanDays">
+          </td>
+          <td class="text-center" style="padding:2px;">
+            <input class="form-control title-text col-md-2 text-center" type="text" ng-model="$parent.$parent.timeSpanHours">
+          </td>
+          <td class="text-center" style="padding:2px;">
+            <input class="form-control title-text col-md-2 text-center" type="text" ng-model="$parent.$parent.timeSpanMins">
+          </td>
+          <td class="text-center" style="padding:2px;">
+            <input class="form-control title-text col-md-2 text-center" type="text" ng-model="$parent.$parent.timeSpanSecs">
+          </td>
+        </tr>
+      </table>
+    </div>
+    <!------------------>
+    <!--tick and cross buttons -->
+    <div class="pull-right edit-buttons-background" ng-if="!editCheckbox">
+      <button class="btn btn-default" type="button" ng-click="saveText($event);">
+        <i class="fa fa-check"></i>
+      </button>
+      <button class="btn btn-default" type="button" ng-click="cancelText();">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+    <!-------------------------->
+
+  </div>
+
+</div>

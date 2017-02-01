@@ -1,0 +1,38 @@
+﻿<div class="row">
+    <div ng-if="showPageLabel && 0 < pages.length" class="pagination number-results text-nowrap text-center text-vertical-middle" ng-class="{'col-sm-12':  showPageLabel && !itemsPerPageSelect && 1 == pages.length , 'col-sm-6':  showPageLabel && itemsPerPageSelect && 1 == pages.length , 'col-sm-3':  1 < pages.length}" >
+        {{ ((pagination.current - 1) * pagination.itemsPerPage) + 1 }}-{{ (pagination.current * pagination.itemsPerPage) > pagination.collectionLength ? pagination.collectionLength : pagination.current * pagination.itemsPerPage}} of {{pagination.collectionLength}}
+    </div>
+    <div ng-if="1 < pages.length" class="pagination-numbers pagination text-center" ng-class="{'col-sm-12': !showPageLabel && !itemsPerPageSelect, 'col-sm-8':  !showPageLabel && itemsPerPageSelect, 'col-sm-9':  showPageLabel && !itemsPerPageSelect, 'col-sm-5':  showPageLabel && itemsPerPageSelect}">
+        <ul class="pagination pagination-sm">
+            <li ng-if="boundaryLinks" ng-class="{ disabled : pagination.current == 1 }" ng-click="setCurrent(1)">
+                <a href="">&laquo;</a>
+            </li>
+            <li ng-if="directionLinks" ng-class="{ disabled : pagination.current == 1 }" ng-click="setCurrent(pagination.current - 1)">
+                <a href="">&lsaquo;</a>
+            </li>
+            <li ng-repeat="pageNumber in pages track by $index" ng-class="{ active : pagination.current == pageNumber, disabled : pageNumber == '...' }" ng-click="setCurrent(pageNumber)">
+                <a href="">{{ pageNumber }}</a>
+            </li>
+
+            <li ng-if="directionLinks" ng-class="{ disabled : pagination.current == pagination.last }" ng-click="setCurrent(pagination.current + 1)">
+                <a href="">&rsaquo;</a>
+            </li>
+            <li ng-if="boundaryLinks" ng-class="{ disabled : pagination.current == pagination.last }" ng-click="setCurrent(pagination.last)">
+                <a href="">&raquo;</a>
+            </li>
+        </ul>
+    </div>
+    <div class="results-option pagination text-center form-inline" ng-class="{'col-sm-6':  showPageLabel && itemsPerPageSelect && 1 == pages.length , 'col-sm-4':  1 < pages.length}" ng-if="itemsPerPageSelect && 0 < pages.length" >
+        <div class="form-group">
+            <label><span class="hidden-xs hidden-sm hidden-md hidden-ld">Results</span> Per Page:</label>
+            <select class="form-control select-menu" ng-model="pagination.itemsPerPage" ng-change="setItemsPerPage(pagination.itemsPerPage)">
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
+                <option value="25">25</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+            </select>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+﻿<div class="paginationcontain">
+  <div class="centerpagercontain">
+
+    <div style="display:inline-block; margin-right:1em;">{{ (getParentPage() * getPageSize()) + 1 }}-{{ ((getParentPage() + 1) * getPageSize()) > arrayLength() ? arrayLength() : (getParentPage() + 1) * getPageSize() }} of {{arrayLength()}}</div>
+    <div ng-show="showPager()" style="display:inline-block">
+      <ul class="paginbkarrows">
+        <li ng-class="prevPageDisabled()" ng-click="firstPage()">
+          <a href=""><<</a>
+        </li>
+        <li ng-class="prevPageDisabled()" ng-click="prevPage()">
+          <a href=""><</a>
+        </li>
+      </ul>
+      <ol class="paginumcontain">
+        <li ng-repeat="n in range()"
+            ng-class="{active: n == getParentPage()}" ng-click="setPage(n)">
+          <a href="">{{n+1}}</a>
+        </li>
+      </ol>
+      <ul class="paginfwdarrows">
+        <li ng-class="nextPageDisabled()" ng-click="nextPage()">
+          <a href="">></a>
+        </li>
+        <li ng-class="nextPageDisabled()" ng-click="lastPage()">
+          <a href="">>></a>
+        </li>
+      </ul>
+      <input type="number" class="genericinput gtpinput" ng-model="pageno" />
+      <button type="button" class="smallbtn primarybutton" ng-click="gotopage(pageno)">Go to Page</button>
+    </div>
+    <div class="resultsperpagecontainer">
+      <label style="color:#333">Results Per Page:</label>
+      <select style="width:80px;" class="genericinput" ng-model="requesteditems" ng-change="onchangenum(requesteditems.value)" ng-options="item.name for item in numberofitems"></select>
+    </div>
+
+    <span ng-show="errormsg" class="errormsg">Please enter a valid page number</span>
+  </div>
+</div>

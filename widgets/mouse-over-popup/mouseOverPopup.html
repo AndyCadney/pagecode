@@ -1,0 +1,47 @@
+﻿<style>
+  .popup {
+    position: absolute;
+    max-width: 400px;
+    word-wrap: break-word;
+    bottom: 25px;
+    left: 8px;
+    display: block;
+    line-height: 1.4;
+    max-height: 350px;
+    border-radius: 3px;
+    background-color: #333;
+    padding: 0;
+    color: #fff;
+  }
+
+    .popup:after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 0;
+      position: absolute;
+      border-top: 5px solid #333;
+      border-right: 5px solid rgba(255, 255, 255, 0);
+      border-left: 5px solid transparent;
+      bottom: -5px;
+      left: 10px;
+    }
+
+  .secondaryclass {
+    max-height: 350px;
+    overflow: auto;
+    padding: 5px 10px;
+  }
+
+  .slash {
+    padding: 5px 0;
+    font-size: 20px;
+    color: orange;
+  }
+</style>
+<span class="stringcontainer" style="position:relative;">
+  <span style="cursor:pointer;" ng-mouseenter="showPopup = !showPopup" ng-mouseleave="showPopup = !showPopup">{{displayText}}</span>
+  <span class="popup" ng-show="showPopup" style="padding:3px">
+    <span class="secondaryclass">{{popupText}}</span>
+  </span>
+</span>

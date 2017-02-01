@@ -1,0 +1,30 @@
+﻿<form name="vm.form" novalidate ng-submit="submit()" ng-init="vm.init()">
+	<div class="modal-header">
+		<h3 class="modal-title">
+			{{::vm.titleText}}
+		</h3>
+	</div>
+
+	<div class="modal-body">
+		<div class="form-horizontal">
+
+			<div class="form-group" ng-class="{'has-error': (vm.form.$submitted || vm.form.input.$touched) && !vm.form.input.$valid}">
+				<label for="input" class="col-sm-2 control-label">{{::vm.labelText}}</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" id="input" name="input" placeholder="{{::vm.inputPlaceholder}}" required ng-model="vm.inputModel" />
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+</form>
+
+<div class="modal-footer">
+	<button type="reset" class="btn btn-warning pull-right" ng-click="vm.close(false)">Close</button>
+	<button type="button" class="btn btn-success pull-right" ng-click="vm.save()">Save</button>
+
+	<div ng-show="vm.showErrorMessage" class="error-tooltip-container pull-right" uib-tooltip="{{::vm.errorMessage}}" tooltip-is-open="vm.showErrorMessageTooltip" tooltip-placement="bottom">
+		<i id="errormessage" type="danger" class="icon-warning"></i>
+	</div>
+</div>

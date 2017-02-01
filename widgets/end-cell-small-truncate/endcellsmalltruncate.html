@@ -1,0 +1,8 @@
+﻿<div class="small-stringcontainer" cursor:pointer;padding:3px;">
+  <span class="inline-block" ng-show="!btnactive">{{actualobj}}</span>
+  <span class="inline-block truncate" ng-show="btnactive" ng-mouseenter="showfullstring()" ng-mouseleave="showfullstring()">{{substr}}</span>
+
+  <div class="end-cell small-completestring" ng-show="showcompletestring">
+    <div class="small-secondaryclass">{{fullstring}}</div>
+  </div>
+</div>

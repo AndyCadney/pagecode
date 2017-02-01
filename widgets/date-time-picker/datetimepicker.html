@@ -1,0 +1,9 @@
+﻿<div class='input-group date {{elementId}}' id="{{elementId}}">
+  <input id="{{'txt' + elementId}}" type='text' ng-click="OpenDatePicker($event)" class="form-control" ng-keydown="OpenDatePicker($event)" />
+  <span id="{{'btn' + elementId}}" class="input-group-addon clickable">
+    <span class="icon-calendar"></span>
+  </span>
+  <span ng-show="showclear" id="{{'clear' + elementId}}" class="input-group-addon clickable" ng-click="clear()">
+    <span class="icon-eraser"></span>
+  </span>
+</div>

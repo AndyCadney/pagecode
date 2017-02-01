@@ -1,0 +1,29 @@
+﻿<div class="modal-header">
+  <h4 class="modal-title">Set Pin</h4>
+</div>
+<div class="modal-body">
+  <div class="tve-row" style="margin-bottom: 10px;">
+    <input focus-me="true" type="password" style="padding: 0.8em;" ng-model="selectedPIN" ng-keydown="enterPINNo($event.key, $event)" />
+    <br />
+    <button type="button" style="width: 50px; height: 50px;" ng-click="enterPINNo(1)">1</button>
+    <button type="button" style="width: 50px; height: 50px;" ng-click="enterPINNo(2)">2</button>
+    <button type="button" style="width: 50px; height: 50px;" ng-click="enterPINNo(3)">3</button>
+    <br />
+    <button type="button" style="width: 50px; height: 50px;" ng-click="enterPINNo(4)">4</button>
+    <button type="button" style="width: 50px; height: 50px;" ng-click="enterPINNo(5)">5</button>
+    <button type="button" style="width: 50px; height: 50px;" ng-click="enterPINNo(6)">6</button>
+    <br />
+    <button type="button" style="width: 50px; height: 50px;" ng-click="enterPINNo(7)">7</button>
+    <button type="button" style="width: 50px; height: 50px;" ng-click="enterPINNo(8)">8</button>
+    <button type="button" style="width: 50px; height: 50px;" ng-click="enterPINNo(9)">9</button>
+    <br />
+    <button type="button" style="width: 50px; height: 50px; background-color: #47a447;color: #FFFFFF;" ng-click="changePIN()">Enter</button>
+    <button type="button" style="width: 50px; height: 50px;" ng-click="enterPINNo(0)">0</button>
+    <button type="button" style="width: 50px; height: 50px;background-color: #d2322d; color: #FFFFFF;" ng-click="selectedPIN = ''">Clear</button>
+    <br /><br />
+    <span class="errormsg" style="padding-top: 10px;">{{ pinEntryError }}</span>
+  </div>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-warning" ng-click="close()">Close</button>
+</div>

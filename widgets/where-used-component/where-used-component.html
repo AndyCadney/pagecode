@@ -1,0 +1,47 @@
+﻿<div>
+  <h4>Where Used</h4>
+</div>
+<div class="table-fixed-header-block">
+  <div class="table-fixed-header-block-container" id="containertblwhereused">
+    <table class="table table-bordered table-striped table-condensed">
+      <thead>
+        <tr ng-if="wu.type == 'actVideos'">
+          <td class="tablecol-x-1-width"></td>
+          <td>TaskID</td>
+          <td>Version</td>
+          <td>Activity</td>
+        </tr>
+        <tr ng-if="wu.type == 'actImage'">
+          <th class="tablecol-x-1-width"></th>
+          <th>Type</th>
+          <th>TaskID</th>
+          <th>Version</th>
+          <th>Activity</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-if="wu.type == 'actVideos'" ng-repeat="use in wu.uses">
+          <td>
+            <a class="btn btn-default btn-sm" ng-href="/Portal/VTV/{{use.TaskVersionID}}" target="_blank" title="View">
+              <i class="icon-eye"></i>
+            </a>
+          </td>
+          <td>{{use.TaskID}}</td>
+          <td>{{use.Version}}</td>
+          <td>{{use.ActivitySeq}}</td>
+        </tr>
+        <tr ng-if="wu.type == 'actImage'" ng-repeat="use in wu.uses">
+          <td>
+            <a class="btn btn-default btn-sm" ng-href="/Portal/VTV/{{use.TaskVersionID}}" target="_blank" title="View">
+              <i class="icon-eye"></i>
+            </a>
+          </td>
+          <td>{{use.Type}}</td>
+          <td>{{use.TaskID}}</td>
+          <td>{{use.Version}}</td>
+          <td>{{use.ActivitySeq}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
