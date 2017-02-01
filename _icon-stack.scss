@@ -1,0 +1,109 @@
+﻿/* vf-stack CSS, used to create new icons by stacking icons */
+
+/* Stack container class */
+
+.vf-stack.fa-stack {
+  top: 2px;
+  right: 0;
+  height: 1.5em;
+  margin: -1px -5px; }
+
+.vf-stack.fa-stack i {
+  width: 100%;
+  text-align: center; }
+
+/* Tree icon specific custom classes */
+
+ul.bomTree .vf-stack .extra-file-empty-minus, ul.bomTree .vf-stack .extra-file-empty-plus, ul.bomTree .vf-stack .extra-whitesquare {
+  left: 2px;
+  top: 2px; }
+
+	ul.bomTree .vf-stack .extra-whitesquare {
+	color: $brand-white; }
+
+	.vf-stack .vf-icon-size.fa-stack-1x {
+			left: 8px;
+			top: 12px;
+			font-size: 10px;
+		}
+
+		.vf-stack .vf-circleoutline-size.fa-stack-1x {
+			left: 8px;
+			top: 10px;
+			font-size: 15px;
+		}
+
+		.vf-stack .vf-circle-size.fa-stack-1x {
+			left: 8px;
+			top: 10px;
+			font-size: 15px;
+			color: $brand-white;
+		}
+
+		.fa-stack-x {
+			position: absolute;
+		}
+
+		.vf-stack .vf-icon-size.fa-stack-x {
+			left: 6px;
+			top: 10px;
+			font-size: 6px;
+		}
+
+		.vf-stack .vf-circleoutline-size.fa-stack-x {
+			left: 6px;
+			top: 8px;
+			font-size: 11px;
+		}
+
+		.vf-stack .vf-circle-size.fa-stack-x {
+			left: 6px;
+			top: 8px;
+			font-size: 11px;
+			color: $brand-white;
+		}
+
+/* Where Used Icon */
+
+         .vf-stack .icon-cog2.fa-stack-1x {
+			left: -4px;
+			top: 4px;
+		    font-size: 15px;
+		}
+
+         .vf-stack .icon-search.fa-stack-x {
+			left: 10px;
+			top: -5px;
+            color: #555;
+            font-size: 16px;
+		}
+
+/* Pin Delete Icon */
+
+        .table.table-bordered.table-striped tr .vf-stack i.icon-bin.fa-stack-1x, .vf-stack i.icon-bin.fa-stack-1x {
+			left: 0px;
+			top: 1px;
+            color: #777;
+		}
+
+        .table.table-bordered.table-striped tr .vf-stack i.icon-pushpin2.fa-stack-x, .vf-stack i.icon-pushpin2.fa-stack-x {
+			left: 10px;
+			top: -4px;
+            color: #adadad;
+		}
+
+/* bomTree vf-stack-mono CSS */
+
+.vf-stack-mono.fa-stack {
+  top: 0px;
+  left: -10px;
+  margin-bottom: -0.5em;
+  margin-bottom: -1.5em; }
+
+.vf-stack-mono.vf-stack-offset.fa-stack {
+  display: block;
+  top: 5px;
+  left: -20px;
+  height: 0.8em;
+  margin-top: -0.3em;
+  margin-bottom: 0.3em; }

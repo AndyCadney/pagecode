@@ -1,0 +1,83 @@
+﻿/* Warning Message CSS */
+
+.vf-alert {
+    text-align: center;
+    padding: 5px 12px;
+    margin-top: -3px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    font-weight: bold;
+}
+
+/* Error Tooltip Block CSS */
+
+.tooltip.error-tooltip, .error-tooltip-container {
+    text-align: center;
+    width: 25px;
+    margin: 0 auto;
+}
+
+.tooltip.error-tooltip .tooltip-inner, .error-tooltip-container + div > .tooltip-inner {
+    font-weight: bold;
+    font-size: 18px;
+    border: 1px solid #f00;
+    color: #000;
+    background-color: #fff;
+}
+
+i.error-tooltip, .error-tooltip-container > i {
+    font-size: 180% !important; 
+    margin-top: 5px;
+    color: #ff0000;
+}
+
+/* Help icon CSS */
+
+.help-icon {
+  padding-right: 10px;
+		> i {
+			display:inline!important;
+			font-size: 1.5em!important;
+			vertical-align:middle!important;
+		}
+}
+
+span.i-caption {
+    position: relative;
+    top:0px;
+    left:0px;
+    font-size: 12px;
+}
+
+.large-icon {
+  font-size: 1.5em !important; 
+}
+
+.inline-icon {
+  display:inline!important;
+}
+
+span.i-caption {
+    position: relative;
+    top:0px;
+    left:0px;
+    font-size: 12px;
+}
+
+.sidebar-icon {
+  font-size: 1.5em !important;
+  height: 32px;
+  margin-top: 1px;
+  margin-bottom: 1px;
+}
+
+.sidebar-open i.fa, .sidebar-close i.fa {
+    font-size: 16px;
+    margin-right: 4px;
+    margin-left: 1px;
+}
+
+.sidebar-close i.fa {
+    margin-right: 4px;
+    margin-left: 1px;
+}
