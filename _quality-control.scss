@@ -1,0 +1,213 @@
+﻿/* Quality Control SASS File */
+
+.quality-control {
+
+  table {
+    font-size: 12px;
+  }
+
+	.noSidePaddings{
+		padding-left:0px;
+		padding-right:0px;
+	}
+
+	.no-margin{
+		margin:0px;
+	}
+
+	.dataBox{
+		width:100%;
+		padding:5px;
+		background-color:#f5f5f5;
+		border:1px solid #ddd;
+	}
+
+  .largeColumn {
+    vertical-align: middle;
+    text-align: center;
+    min-width: 120px;
+    border-bottom: none;
+  }
+
+  .mediumColumn {
+    vertical-align: middle;
+    text-align: center;
+    min-width: 70px;
+    border-bottom: none;
+  }
+
+  .verticalColumn {
+    vertical-align: middle;
+    text-align: center;
+    font-size: 9px;
+    border-bottom: none;
+  }
+
+  .plusButton {
+    background-color: #f2f2f2;
+  }
+
+  .whiteBlueHighlight:hover {
+    background-color: #ecf5ff;
+  }
+  
+  .whiteBlueHighlight > td {
+    padding:28px 10px; 
+  }
+
+  table tbody > tr.repeat-rows {
+        background-color: #f2f2f2;
+    }
+
+  table tbody tr.repeat-rows:hover {
+        background-color: #ecf5ff;
+    }
+
+  table tbody > tr.repeat-rows, table tbody tr.repeat-rows > td {
+        height:0px; 
+        overflow:visible; 
+        margin-top:-20px; 
+        display:block; 
+        border:none; 
+        pointer-events: none;
+    }
+
+  table tbody tr.repeat-rows > td {
+        margin-top:0px; 
+        margin-bottom:-20px;
+        position:relative; 
+        
+    }
+  
+
+  table tbody tr.repeat-rows > td > i {
+        font-size:16px; 
+        background-color:#F2F2F2; 
+        padding:5px; 
+        border:1px solid #ddd; 
+        cursor: pointer; 
+        position:absolute; 
+        top:20px; 
+        left:-1px; 
+        pointer-events:all;
+    }
+
+  .text-filtering {
+        padding:28px 10px; 
+    }
+
+		.green-chevron{
+			position:absolute;
+			bottom:20px;
+			right:50%;
+			width:14px;
+		  margin-right:-7px;
+			color:#27ae60;
+		}
+
+		.red-chevron{
+			position:absolute;
+			bottom:20px;
+			right:50%;
+			width:14px;
+		  margin-right:-7px;
+			color:#c0392b;
+		}
+
+		.impactTextArea{
+			overflow:hidden;
+			height:74px;
+			resize:none;
+		}
+
+		.sliderWrapper{
+			width:30%;
+			float:right;
+			position:relative;
+			overflow:hidden;
+			height:72px;
+			margin:1px 0px;
+		}
+
+		.impactSlider{
+			margin:7px -50px 7px -20px;
+			width:74px;
+			-webkit-transform: rotate(270deg);
+			-moz-transform: rotate(270deg);
+			transform: rotate(270deg);
+			-webkit-appearance:none;
+			background:transparent;
+			position:absolute;
+			top:0px;
+			left:-5px;
+			bottom:0px;
+			border:none !important;
+		}
+
+		.impactSlider::-webkit-slider-thumb{
+			-webkit-appearance: none;
+			background-color:#333;
+			width:16px;
+			height:8px;
+			border:none;
+		}
+
+		.impactSlider::-webkit-slider-runnable-track{
+			width:100%;
+			height:8px;
+			cursor:pointer;
+			background-color:#ccc;
+			border:none;
+		}
+
+		.impactSlider::-ms-thumb{
+			-webkit-appearance: none;
+			background-color:#333;
+			width:16px;
+			height:8px;
+			border:none;
+		}
+
+		.impactSlider:focus{
+			-webkit-appearance: none;
+			border:none !important;
+		}
+
+		.impactSlider::-ms-track{
+			-webkit-appearance: none;
+			width:100%;
+			height:8px;
+			cursor:pointer;
+			background-color:#ccc;
+			border:none;
+			color:transparent;
+		}
+
+		.impactSlider::-ms-fill-lower{
+			background-color:#ccc;
+			border:none;
+			color:transparent;
+		}
+		
+		.impactSlider::-ms-fill-upper{
+			background-color:#ccc;
+			border:none;
+			color:transparent;
+		}
+
+		.impactSlider:focus::-ms-fill-lower{
+			background-color:#ccc;
+			border:none;
+			color:transparent;
+		}
+		
+		.impactSlider:focus::-ms-fill-upper{
+			background-color:#ccc;
+			border:none;
+			color:transparent;
+		}
+
+		.impactSlider::-ms-tooltip{
+			display:none;
+		}
+}

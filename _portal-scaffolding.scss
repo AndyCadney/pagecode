@@ -1,0 +1,311 @@
+﻿/* Portal Scaffolding */
+
+// Needed for angular ng-cloak directiv - stops FOUC
+[ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}
+
+/* Sets Container for All content to fixed, turns of main browser scroll bars */
+
+.vf-portal {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+.nav-logo {
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.fixed-box {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  padding-left: 0;
+}
+
+.vf-portal.loginfullwidth .nav-logo.large-logo {
+    border-bottom: none;
+}
+
+.nav-logo.small-logo img {
+    display: block !important;
+    margin: 5px 19px 0px 6px; 
+    width: 48px;
+    height: 48px;
+}
+
+.nav-logo.large-logo img {
+    display: none;
+    margin: 10.5px 20px;
+}
+
+/* Positions all content below Breadcrumb */
+
+.main-application {
+  padding-top: 20px;
+  width: 100%;
+}
+
+/* Scaffolding Structure Classes */
+
+.portal-content-container.content-search {
+  padding-top: 55px;
+}
+
+.portal-content-container {
+  position: relative;
+  left: 0;
+  top: -56px;
+  padding: 75px 0 0 0;
+  width: 100%;
+  height: 98vh;
+  overflow: hidden;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.portal-content-container.page-home {
+  padding-top: 35px;
+}
+
+.portal-content-container.roles-responsibities {
+  padding-top: 35px;
+}
+
+.production-search.container-fluid, .parts-search.container-fluid, .route-search.container-fluid, .task-search.container-fluid, .image-search.container-fluid, .permissions-manager.container-fluid, .people-license-manager.container-fluid, .tve-andon.container-fluid, .bom-search.container-fluid, .manfacturing-history.container-fluid {
+  width: 100%;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* Matrix sidebar */
+
+.matrix-wo-edit-container {
+  height: 100vh;
+}
+
+.matrix-wo-edit-container .matrix-wo-edit .portal-table-container {
+  margin-bottom: 20px;
+}
+
+.portal-content-main {
+  position: relative;
+  z-index: 40;
+  top: 0px;
+  left: 0; 
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+   -webkit-order: 1;
+  -ms-flex-order: 1;
+  order: 1;
+  width: 100%;
+  padding: 0;
+  margin-bottom: 0px;
+  overflow-y: auto; 
+}
+
+.portal-library.portal-content-main {
+  overflow-y: hidden;
+}
+
+.vf-portal .portal-content-body {
+  position: absolute;
+  left: 0;
+  top: 0px;
+  width: 100%;
+  padding: 25px 24px;
+  padding-bottom: 10px; }
+
+.vf-portal .portal-content-body-library {
+  padding: 25px 24px 10px;
+  max-height: 83vh;
+  overflow: hidden;
+  overflow-y: auto;
+ }
+
+.vf-portal .portal-content-sidebar-library {
+  height:95vh;
+  padding:11px 12px 40px 15px;
+  border:solid 1px #ccc;
+  background-color:#f2f2f2;
+ }
+
+.vf-portal .portal-sidebar-inner {
+   margin-top: 7px;
+   margin-left: -2px;
+   padding-top: 11px;
+   max-height: 100%;
+   min-height: 20%;
+   overflow: hidden;
+   overflow-y: auto;
+}
+
+.portal-content-container .portal-content-main.vfportal .portal-content-body.sidebaropen {
+    padding-left: 212px;
+}
+
+.vf-portal .portal-content-body.container-fluid {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.tasks-versions.container-fluid {
+  margin: 0;
+} 
+
+.portal-content-container.page-home .portal-content-body {
+  left: 0%;
+  padding: 25px;
+  margin: 0;
+}
+
+.portal-content-body.nosearch-or-sidebar-body {
+  left: 0%;
+  width: 100%; 
+}
+
+.portal-content-body.image-library-body, .portal-content-body.results-body, .portal-content-body.admin-body, .portal-content-body.tasks-routes-body {
+  left: 0%;
+  width: 100%; 
+}
+
+.portal-content-body.image-library-body {
+  padding: 50px 40px;
+  padding-bottom: 0;
+}
+
+.configurator-matrix.portal-content-container .portal-content-body {
+  padding: 0 0px 15px 0; }
+
+.configurator-matrix.portal-content-container table {
+  margin: 25px 5px 0 0px;   
+  width:auto;
+}
+
+.configurator-matrix.portal-content-container ul.pagination {
+  margin-left: 20px;   
+}
+
+.portal-content-body .place-hold {
+  width: 30px;
+  height: 30px;
+}
+
+.works-order, .manfacturing-history, .trigger-manager, .parts-search {
+    width: 100%;
+}
+
+.image-library .portal-content-body, .vf-portal .production-note-types .portal-content-body, .vf-portal .action-types .portal-content-body, .vf-portal .operation-types .portal-content-body, .vf-portal .tasks-types .portal-content-body, .vf-portal .operation-types .portal-content-body, .vf-portal .works-order-edit .portal-content-body {
+  width: 100%;
+  left: 0%; 
+}
+
+.portal-content-container.works-order-edit, .portal-content-container.reports-manager {
+  padding-top: 30px;
+}
+
+.works-order-edit .portal-content-body {
+  margin-top: 5px;
+}
+
+.reports-manager .portal-content-body {
+  margin-top: -15px;
+}
+
+
+.library-image-box {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+/* VF Portal classes, top navigation hide default border to remove 1px line. */
+
+.navbar-fixed-top {
+  border: 0;
+}
+
+//Portal breadcrumb styles - here the forward slashes are inserted with psuedo classes
+
+.breadcrumb {
+  position: relative;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  font-weight: bold;
+  height: 56px;
+  margin-bottom: 0;
+  margin-right: 2rem;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 2.7rem;
+  background: #fff;
+  border-bottom: solid 3px #e0e0e0;
+  border-radius: 0px;
+  .navbar-nav {
+      margin-top: 1.6rem;
+      li {
+          margin-right: 1.3rem;
+      }
+      li.crumb-text {
+          top: 0.3rem;
+          margin-right: 0;
+          > a {
+              position: relative;
+              top: -0.1rem;
+              padding: 0!important;
+              display: inline;
+          }
+          > span {
+              position: relative;
+              top: -0.1rem;
+              margin-right: 0.4rem;
+          }
+          > span:last-child {
+             top: -0.1rem;
+          }
+        }
+    }
+    .navbar-nav.navbar-right {
+        li {
+            position: relative; 
+           // right: 2rem;
+           margin-right: 0;
+           margin-left: 1rem;
+        }
+        li.crumb-search {
+          top: -0.75rem; 
+        }
+    }
+}
+
+@media (min-width:1175px) {
+    .breadcrumb {
+      padding-left: 1rem;
+      margin-right: 0;
+  }
+}
+
+.portalbreadcrumbs {
+  margin-top: 17px;
+  margin-left: -13px;
+}
+
+ul.portalbreadcrumbs li {
+  padding-left: 0px;
+}
+
+ul.portalbreadcrumbs li:first-child {
+  padding-left: 5px;
+}
+
+.user-breadcrumb-icon {
+    height: 25px;
+    margin-top: -1.5px; }

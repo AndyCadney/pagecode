@@ -1,0 +1,108 @@
+﻿.translate-tools-tree {
+    max-height: 640px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border: solid 1px rgb(212,212,212);
+    margin-top: 7px;
+    padding: 12px 12px 12px 12px;
+    background-color: rgb(253,253,253);
+    border-radius: 4px;
+}
+
+.extra-whitesquare {
+    color: $brand-white;
+}
+
+.translate-toolbar-section {
+    display: inline-block;
+    padding: 0 20px 0 20px;
+}
+
+.error-message-reposition>.error-tooltip-container {
+    position: relative;
+    top: -30px;
+    left: 35px;
+}
+
+.tool-type-label {
+    vertical-align: bottom;
+    display: inline-block;
+    width: 38%;   
+}
+
+.tool-type-field {
+    vertical-align: bottom;
+    display: inline-block;
+    width: 51%;    
+}
+    
+.tool-type-button {
+    padding-left: 15px;
+    vertical-align: bottom;
+    display: inline-block;
+    width: 7%;
+}
+
+.tool-type-button {
+    position: relative;
+    top: 8px;
+    padding-left: 15px;
+    vertical-align: bottom;
+    display: inline-block;
+    width: 7%;
+}
+
+.tool-cat-label {
+    position: relative;
+    left: 3%;
+    vertical-align: bottom;
+    display: inline-block;
+    width: 38%;   
+}
+ 
+.tool-cat-field {
+    position: relative;
+    left: 6%;
+    vertical-align: bottom;
+    display: inline-block;
+    width: 45%;    
+}
+           
+.tool-cat-button {
+    position: relative;
+    left: 6%;
+    top: 8px;
+    padding-left: 15px;
+    vertical-align: bottom;
+    display: inline-block;
+    width: 7%;
+}
+
+.tool-label {
+    position: relative;
+    left: 6%;
+    vertical-align: bottom;
+    display: inline-block;
+    width: 38%;      
+}
+
+.tool-field {
+    position: relative;
+    left: 9%;
+    vertical-align: bottom;
+    display: inline-block;
+    width: 42%; 
+}
+            
+.tool-button {
+    position: relative;
+    left: 9%;
+    top: 8px;
+    padding-left: 15px;
+    vertical-align: bottom;
+    display: inline-block;
+    width: 7%;
+}
+
+
+

@@ -1,0 +1,451 @@
+﻿/* Portal Main Menu default appearance class add */
+
+.breadcrumb .sidebar-icon {
+    display: none;
+}
+
+.inner-sidebar ul.nav-menu.navigation > li.home-link {
+    position: fixed;
+    left: 67px;
+    bottom: 20px;
+    z-index: 170;
+    text-align: center;
+    width: 60px;
+}
+
+.inner-sidebar ul.nav-menu.navigation > li.home-link a {
+    padding-top: 6px;
+    padding-left: 4px;
+    padding-right: 30px;
+}
+
+.inner-sidebar ul.nav-menu.navigation > li.home-link a > i {
+  text-indent: 13px;
+}
+
+.inner-sidebar ul.nav-menu.navigation > li.home-link span.inner-span {
+    display: block;
+}
+
+.inner-sidebar ul.nav-menu.navigation > li.vscreen-link {
+    position: fixed;
+    left: 134px;
+    bottom: 20px;
+    z-index: 170;
+    text-align: center;
+}
+
+.inner-sidebar ul.nav-menu.navigation > li.vscreen-link a {
+    padding-top: 6px;
+    padding-left: 3px;
+    padding-right: 10px;
+    width: 77px;
+}
+
+.inner-sidebar ul.nav-menu.navigation > li.vscreen-link a > i {
+    text-indent: 3px;
+}
+
+.inner-sidebar ul.nav-menu.navigation > li.vscreen-link span.inner-span {
+    display: block;
+}
+
+.inner-sidebar ul.nav-menu.navigation > li.liveview-link {
+    position: fixed;
+    left: 215px;
+    bottom: 20px;
+    z-index: 170;
+    text-align: center;
+}
+
+.inner-sidebar ul.nav-menu.navigation > li.liveview-link a {
+    padding-top: 6px;
+    padding-left: 1px;
+    padding-right: 22px;
+    width: 85px;
+}
+
+.inner-sidebar ul.nav-menu.navigation > li.liveview-link a > i {
+    text-indent: 3px;
+}
+
+.inner-sidebar ul.nav-menu.navigation > li.liveview-link span.inner-span {
+    display: block;
+}
+
+
+
+.sidebarnavcollapsed .sidebar-bottom-fixed-box, .sidebarnav .sidebar-bottom-fixed-box {
+    position:fixed;
+	z-index: 160;
+    bottom: 0px;
+    left: 0;
+    width:60px;
+    height: 85px;
+    border-top: solid 1px #e0e0e0;
+    border-bottom: solid 20px #5e626b;
+    background: #363C47;
+    overflow: hidden;
+}
+
+.sidebarnavcollapsed .sidebar-bottom-fixed-box .liveview-link, .sidebarnav .sidebar-bottom-fixed-box .liveview-link, .sidebarnavcollapsed .sidebar-bottom-fixed-box .vscreen-link, .sidebarnav .sidebar-bottom-fixed-box .vscreen-link, .sidebarnavcollapsed .sidebar-bottom-fixed-box .home-link, .sidebarnav .sidebar-bottom-fixed-box .home-link {
+    display:none;
+}
+
+.sidebarnavcollapsed .sidebar-bottom-fixed-box .home-link.home-link-mini, .sidebarnav .sidebar-bottom-fixed-box .home-link.home-link-mini {
+    display:block;
+}
+
+.inner-sidebar ul.nav-menu.navigation > li.home-link.home-link-mini {
+    left: 0px;
+}
+
+.sidebarnav .sidebar-bottom-fixed-box:hover, .sidebarnavcollapsed .sidebar-bottom-fixed-box:hover  {
+    width:307px;
+}
+
+.sidebarnav .sidebar-bottom-fixed-box:hover .liveview-link, .sidebarnav .sidebar-bottom-fixed-box:hover .vscreen-link, .sidebarnavcollapsed .sidebar-bottom-fixed-box:hover .liveview-link, .sidebarnavcollapsed .sidebar-bottom-fixed-box:hover .vscreen-link, .sidebarnavcollapsed .sidebar-bottom-fixed-box:hover .home-link, .sidebarnav .sidebar-bottom-fixed-box:hover .home-link {
+    display: block;
+}
+
+.sidebarnavcollapsed .sidebar-bottom-fixed-box:hover .home-link.home-link-mini, .sidebarnav .sidebar-bottom-fixed-box:hover .home-link.home-link-mini {
+    display: none;
+}
+
+
+
+ .sidebarnavcollapsed .nav-logo.large-logo, .sidebarnav .nav-logo.large-logo {
+   margin-top: -2px;
+   border-bottom: solid 3px #e0e0e0;
+ }
+
+ .nav-logo {
+     height: 57px;
+     margin-top: -1px;
+     border-bottom: solid 3px #e0e0e0;
+ }
+
+ .sidebarnavcollapsed .nav-logo.small-logo, .sidebarnav .nav-logo.small-logo {
+   width: 60px;
+ }
+
+ .sidebarnavcollapsed .nav-logo.large-logo, .sidebarnav .nav-logo.large-logo {
+   width: 240px;
+   display: none;
+   z-index: 20; 
+ }
+
+ .sidebarnavcollapsed .nav-logo.small-logo, .sidebarnav .nav-logo.small-logo {
+   display: block;
+   z-index: 20; 
+ }
+
+/* Portal Main Menu collapsed sizing */
+
+.collapsenavcontain {
+	position: relative;
+	top: -35px;
+	left: 0;
+	z-index: 50;
+}
+
+.arrow-right {
+	padding-left: 90px;
+}
+
+.arrow-left{
+	padding-left: 30px;
+}
+
+/* Menu Navigation Content Positioning */
+
+.navigation {
+  position: absolute;
+  left: 0px;
+  top: 54px;
+  padding-top: 15px;
+  min-width: 60px;
+  min-height: 100%;
+  margin-bottom: 40px;
+  background-color: #363C47;
+}
+
+/* Menu main logo classes */
+
+.navigation-icon {
+  display:inline-block!important;
+  font-family:"icomoon" !important;
+  color: $nav-icon !important;
+  font-size: 20px!important;
+  width:21px!important;
+  padding-top: 0px!important;
+  padding-right: 3px!important;
+  vertical-align:middle !important;
+}
+
+.inner-sidebar .icon-uni23 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.navigation-icon.fa {
+  font-family:"FontAwesome"!important;
+}
+
+.selectednavitem > i {
+  color:$brand-white!important;
+}
+
+.nav-logo {
+	margin-bottom: 10px;
+}
+
+/* Main Menu Icons & Link Text Formats */
+
+.sidebarnav .inner-sidebar, .sidebarnavcollapsed .inner-sidebar {
+	 i.fa {
+		font-size: 22px;
+		color: $brand-white;
+	}
+}
+
+.sidebar .nav > li {
+        > a {
+            padding: 10px 0px 10px 17px;
+        }
+		> a:hover {
+				text-decoration: none;
+				background-color: $nav-focus !important; 
+				}
+		> a:focus {
+			background-color: $nav-focus !important; 
+		}
+}
+
+.nav-menu.navigation {
+	padding-left: 2px;
+  margin-bottom: 200px;
+}
+
+.nav-menu.admin-menu {
+		margin-top: -15px;
+		margin-left: -10px;
+}
+
+.selectedsubnavitem {
+	position: relative;
+	left: -5px;
+}
+
+.nav-menu li { 
+	span {
+	font-size: 110%;
+	color: $brand-primary-lightest !important;
+	}
+	a.selectednavitem span {
+		color: $brand-white !important;
+		font-weight:bold;
+	}
+}
+
+.admin-menu li span {
+	font-size: 100%;
+}
+
+.sidebar .inner-span {
+  padding-left: 5px;
+  display: none;
+  vertical-align:sub;
+  }
+
+	.inner-nav li span {
+		font-size: 100%;
+	}
+
+	.nav.inner-nav > li > a {
+	padding: 6px 15px;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
+	}
+
+  .nav.inner-nav > li:last-child > a {
+  border-bottom: 1px solid #1682ba;
+  }
+
+	.sidebar .nav.inner-nav > li > {
+			a:hover {
+				background-color: $nav-inner-focus !important; 
+			}
+	} 
+
+/* This was after menu-responsive content, may cause issues */
+
+.inner-nav {
+  position: relative;
+  left: 10px; 
+}
+
+.image-display {
+    float: left;
+    width: 18%;
+}
+
+/* responsive menu start experimental */
+
+.navigation li a {
+        white-space: nowrap;
+}
+
+.navigation > li:hover, .navigation > li:focus {
+        position: absolute;
+        left: 3px;
+        z-index: 5075;
+        width: 240px;
+        padding-right: 0;
+}
+
+.navigation > li.home-link:hover, .navigation > li.home-link:focus {
+        position:fixed;
+        left: 0;
+        bottom: 20px;
+        text-align: center
+}
+
+.navigation > li.home-link:hover a > i, .navigation > li.home-link:focus a > i {
+       text-indent: 13px;  
+}
+
+ul.navigation > li:hover + li > a {
+       padding-top: 50px;
+}
+
+ul.navigation > li.home-link:hover + li > a {
+        padding-top: 10px;
+}
+
+ .navigation > li > a:hover .inner-span {
+    display: inline-block; 
+}
+
+.navigation > li > a .inner-span {
+    display: none; 
+}
+
+.sidebarnavcollapsed ul.nav.inner-nav {
+    position: relative;
+    left: 20px;
+    z-index: 5075;
+    width: 60px;
+    background: #363C47;
+}
+
+ul.nav.inner-nav > li > ul.nav.inner-nav li {
+    width: 193px;
+}
+
+.navigation > li:hover > ul.nav.inner-nav, .sidebarnavcollapsed .navigation > li > ul.nav.inner-nav:hover {
+    position: absolute;
+    left: 23px;
+    z-index: 5075;
+    width: 240px;
+    margin-top: -3px;
+    padding-bottom: 10px;
+    background: #5e626b;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.navigation > li:nth-child(n+6):hover > ul.nav.inner-nav, .navigation > li > ul.nav.inner-nav:hover {
+    max-height: 20vh;
+  }
+
+@media (min-height: 600px) {
+  .navigation > li:nth-child(n+6):hover > ul.nav.inner-nav, .navigation > li > ul.nav.inner-nav:hover {
+    max-height: 40vh;
+  }
+}
+
+@media (min-height: 700px) {
+  .navigation > li:nth-child(n+6):hover > ul.nav.inner-nav, .navigation > li > ul.nav.inner-nav:hover {
+    max-height: 47vh;
+  }
+}
+
+@media (min-height: 800px) {
+  .navigation > li:nth-child(n+6):hover > ul.nav.inner-nav, .navigation > li > ul.nav.inner-nav:hover {
+    max-height: 55vh;
+  }
+}
+
+
+.navigation > li > ul.nav.inner-nav:hover {
+    margin-top: -1px;
+}
+
+.navigation > li:hover > ul.nav.inner-nav, .navigation > li > ul.nav.inner-nav:hover {
+    display:block;
+}
+
+.navigation > li > ul.nav.inner-nav {
+    display:none;
+}
+
+.navigation > li:hover > ul.nav.inner-nav > li > ul.nav.inner-nav li, .sidebarnavcollapsed .navigation > li > ul.nav.inner-nav:hover > li > ul.nav.inner-nav li {
+    border-left: 7px solid #ccc;
+}
+
+.navigation > li:hover > ul.nav.inner-nav > li > ul.nav.inner-nav li {
+    width: 240px;
+}
+
+.navigation > li:hover > ul.nav.inner-nav span.inner-span {
+    display: inline-block;
+}
+
+.navigation > li#cssmenu > ul.administer-menu {
+    position: relative;
+    left: -30px;
+}
+
+ul.nav.inner-nav ul > li {
+    width: 60px;
+}
+/*
+ul.nav.inner-nav:hover span.inner-span {
+    display: inline-block;
+}
+*/
+.sidebarnavcollapsed ul.nav.inner-nav span.inner-span {
+    display: none;
+}
+
+/* responsive menu start experimental End */
+
+
+
+ul > li .outer-span:before, ul li ul li .outer-span:before {
+ font-family:"icomoon", "FontAwesome";
+ color: $nav-icon !important;
+ font-size: 20px;
+ padding-top: 5px;
+ padding-right: 3px;
+}
+
+.nav.inner-nav ul { 
+		> li span:before, li ul li span:before {
+		 color:$nav-inner-icon;
+		 font-size: 18px;
+	 }
+	 li a.selectednavitem span:before {
+		color:$nav-inner-select-icon;
+		}
+} 
+
+ul > li a.selectednavitem .outer-span:before, ul li ul li .outer-span:before {
+ color:$brand-white;
+}
+
+.portal-content-main.vfportal .btn-bottom-box {
+          left: 60px;
+        }
+
+

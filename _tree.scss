@@ -1,0 +1,618 @@
+﻿/* Tree Classes, for VF sidebar trees */
+
+/* Sidebar classes */
+
+.sidebarclosed-width {
+    width: 65px;
+    float: left;
+    position: relative;
+    z-index: 5;
+}
+
+.vf-portal .portal-content-body-library.portalbody-sidebarclosed {
+    width: 100%;
+    margin-left: -65px;
+    padding-left: 90px;
+    float: left;
+    position: relative;
+}
+
+.portal-content-main.vfportal .portal-content-sidebar {
+    position: fixed;
+    top: 120px;
+    left: 60px;
+    z-index: 60;
+    min-width: 0px;
+    height: 95vh;
+    padding: 22px 7px 10px 10px;
+	overflow:hidden;
+	overflow-y:auto;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #cccccc;
+    background-color: #f2f2f2;
+} 
+
+.modal-content .bom-results.vfportal .portal-content-sidebar.bom-sidebar-closed, .modal-content .bom-results.vfportal .portal-content-sidebar.bom-sidebar-closed.buttonsidebaropen, .modal-content .bom-results.vfportal .portal-content-sidebar.bom-sidebar-closed.sidebaropen.buttonsidebarclosed  {
+  position: absolute;
+  top: 222px;
+  left: 15px;
+  visibility: hidden;
+  width: 0px;
+  padding: 0;
+  height: 100%;
+}
+
+.modal-content .bom-results.vfportal .portal-content-sidebar.bom-sidebar-closed.sidebaropen, .modal-content .bom-results.vfportal .portal-content-sidebar.bom-sidebar-closed.sidebaropen.buttonsidebaropen {
+    top: 168px;
+    visibility: visible;
+    width: 175px;
+    padding-bottom: 0;
+} 
+
+.modal-content .portal-content-container .bom-results.portal-content-main.vfportal  .portal-content-body.sidebaropen, .modal-content .portal-content-container .bom-results.portal-content-main.vfportal  .portal-content-body.buttonsidebaropen.sidebaropen  {
+    width:100%!important;
+    padding-left: 170px !important;
+}
+
+.modal-content .portal-content-container .bom-results.portal-content-main.vfportal  .portal-content-body.buttonsidebaropen, .modal-content .portal-content-container .bom-results.portal-content-main.vfportal  .portal-content-body.buttonsidebarclosed.sidebaropen {
+    width:100%!important;
+    padding-left: 0px !important;
+}
+
+.modal-content .portal-content-container .bom-results.portal-content-main.vfportal  .portal-content-body.sidebaropen .panel {
+    margin-top: 25px;
+    margin-left: 5px;
+}
+
+.modal-content .portal-content-container .bom-results.portal-content-main.vfportal  .portal-content-body .panel {
+    margin-top: 25px;
+    margin-left: 0;
+} 
+
+.modal-content .portal-content-container .bom-results.portal-content-main.vfportal  .portal-content-body.sidebaropen .panel.bom-panel, .modal-content .portal-content-container .bom-results.portal-content-main.vfportal  .portal-content-body .panel.bom-panel {
+    margin-top: 1px;
+    margin-left: 1px;
+}
+
+.bom-results.portal-content-main.vfportal .portal-content-sidebar.sidebaropen {
+    padding: 22px 7px 10px 10px;
+} 
+
+.portal-content-container .portal-content-sidebar.sidebaropen {
+    width: 188px;
+}
+
+.portal-content-container .bom-results .portal-content-sidebar.sidebaropen {
+    width: 13%;
+}
+
+.portal-content-container .portal-content-sidebar.sidebaropen > div.openClose {
+    display: block;
+}
+
+.portal-content-container .portal-content-sidebar.sidebarclose {
+    width: 45px;
+}
+
+.portal-content-container .portal-content-sidebar.sidebarclose > div.openClose > ul.bomTreeContain {
+    display: none;
+}
+
+.bom-results.vfportal .portal-content-sidebar.bom-sidebar-closed, .bom-results.vfportal .portal-content-sidebar.bom-sidebar-closed.buttonsidebaropen, .bom-results.vfportal .portal-content-sidebar.bom-sidebar-closed.sidebaropen.buttonsidebarclosed, .bom-results.vfportal .portal-content-sidebar.bom-sidebar-closed.showutilisations, .bom-results.vfportal .portal-content-sidebar.bom-sidebar-closed.buttonsidebaropen.showutilisations, .bom-results.vfportal .portal-content-sidebar.bom-sidebar-closed.sidebaropen.buttonsidebarclosed.showutilisations {
+  top: 275px;
+  min-width: 0;
+  width: 0px;
+  padding: 0;
+  height: 100%;
+}
+
+.bom-results.vfportal .portal-content-sidebar.bom-sidebar-closed.sidebaropen, .bom-results.vfportal .portal-content-sidebar.bom-sidebar-closed.sidebaropen.buttonsidebaropen {
+    padding: 0px 0px 100px 15px;
+    width: 300px;
+    top: 215px;
+}
+
+.bom-results h3 {
+  margin-left: 2px;
+  margin-top: 15px;
+}
+
+.bom-search.container-fluid {
+    height: 128px;
+}
+
+/* Extra BOM Classes */
+
+.bom-results.portal-content-main .portal-content-body.sidebarclose .table-matrix-bom {
+  border-top: solid 30px #e8e8e8;
+}
+
+.bom-results.portal-content-main {
+  left: 0px;
+}
+
+.bom-hr {
+  position: relative;
+  z-index: 5;
+  top: 1px;
+  left: 0;
+}
+
+.portal-content-main.vfportal .btn-bottom-box  {
+
+.bom-results.portal-content-main {
+  left: -15px;
+}
+    position: fixed;
+    bottom: 0;
+    left: 60px;
+    z-index: 100;
+    padding: 7px 9px;
+    width: 286px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+}
+
+.portal-content-main.vfportal.vfportal-expand .btn-bottom-box  {
+    left: 60px;
+}
+
+.portal-content-sidebar.sidebaropen .btn-bottom-box {
+    width: 186px;
+}
+
+.portal-content-sidebar.sidebarclose .btn-bottom-box {
+    width: 45px;
+}
+
+.bom-results.portal-content-main .btn-bottom-box {
+  bottom: 142px; 
+}
+
+div.openClose {
+    height: 90%;
+    padding: 0px;
+    overflow:hidden;
+	  overflow-y:auto;
+}
+
+div.configurator-openClose {
+    @extend .openClose;
+    height: 70vh;
+}
+
+@media (min-height: 800px) {
+    div.configurator-openClose {
+        height: 75vh;
+    }
+}
+
+@media (min-height: 970px) {
+    div.configurator-openClose {
+        height: 80vh;
+    }
+}
+
+div.configurator-options-openClose {
+    @extend .openClose;
+    height: 45vh;
+}
+
+@media (min-height: 700px) {
+    div.configurator-options-openClose {
+        height: 50vh;
+    }
+}
+
+@media (min-height: 850px) and (min-width: 1350px) {
+    div.configurator-options-openClose {
+        height: 67vh;
+    }
+}
+
+@media (min-height: 970px) and (min-width: 1800px) {
+    div.configurator-options-openClose {
+        height: 71vh;
+    }
+}
+
+
+div.openClose .tab-content {
+  padding-left: 12px; 
+}
+
+.sidebaropen span.sidebar-open {
+    display: none;
+}
+
+.sidebaropen span.sidebar-close {
+    display: block;
+}
+
+.sidebarclose div.openClose {
+    display: none;
+}
+
+.sidebarclose span.sidebar-open {
+    display: block;
+}
+
+.sidebarclose span.sidebar-close {
+    display: none;
+}
+
+.modal-content .show-cell-sidebar-close {
+    display: inline-block;
+}
+
+.modal-content .bom-sidebar-closed.hide-cell-sidebar-open {
+    display: inline-block;
+}
+
+.modal-content .bom-sidebar-closed.sidebaropen.hide-cell-sidebar-open {
+    display: none;
+}
+
+.modal-content  .table > tbody > tr > td.show-cell-sidebar-close, .modal-content .table > thead > tr > th.show-cell-sidebar-close {
+    display: table-cell;
+} 
+
+.modal-content .table > tbody > tr > td.bom-sidebar-closed.hide-cell-sidebar-open, .modal-content .table > thead > tr > th.bom-sidebar-closed.hide-cell-sidebar-open {
+    display: table-cell;
+}
+
+.modal-content .table > tbody > tr > td.bom-sidebar-closed.sidebaropen.hide-cell-sidebar-open, .modal-content .table > thead > tr > th.bom-sidebar-closed.sidebaropen.hide-cell-sidebar-open {
+    display: none;
+}
+
+bom-results.vfportal .portal-content-body.sidebaropen {
+    width:100%!important;
+    left: 300px!important;
+}
+
+.portal-content-container .portal-content-main.vfportal  .portal-content-body.sidebaropen {
+    width:100%!important;
+    padding-left: 213px !important;
+}
+
+.portal-content-container .bom-results.portal-content-main.vfportal  .portal-content-body.sidebaropen, .portal-content-container .bom-results.portal-content-main.vfportal  .portal-content-body.buttonsidebaropen.sidebaropen {
+    width:100%!important;
+    padding-left: 300px!important;
+}
+
+.portal-content-container .bom-results.portal-content-main.vfportal  .portal-content-body .panel {
+    margin-left: 60px;
+}
+
+.portal-content-container .bom-results.portal-content-main.vfportal  .portal-content-body .panel.bom-panel {
+   margin-left: 10px;
+}
+
+.modal-content .portal-content-container .bom-results.portal-content-main.vfportal  .portal-content-body .panel.bom-panel {
+   margin-left: 5px;
+   margin-bottom: 3px;
+}
+
+.portal-content-container .bom-results.portal-content-main.vfportal  .portal-content-body .panel {
+    margin-left: 28px;
+}
+
+.bom-results.portal-content-main.vfportal .panel-body {
+        padding: 8px;
+    }
+
+.bom-results.portal-content-main.vfportal .panel-body .pagination-controls {
+        height: 53px;
+    }
+
+.above-1175{
+        display: inline;
+    }
+
+td.above-1175, th.above-1175  {
+        display: table-cell;
+    }
+
+.below-1175 {
+        display: none;
+    }
+
+.portalbreadcrumbs {
+  position: relative;
+  left: 0;
+  top: 0;
+}
+
+.above-1300 {
+        display: inline;
+    }
+
+td.above-1300, th.above-1300  {
+        display: table-cell;
+    }
+
+.below-1300 {
+        display: none;
+    }
+
+.above-1550 {
+        display: inline;
+    }
+
+td.above-1550, th.above-1550  {
+        display: table-cell;
+    }
+
+.below-1550 {
+        display: none;
+    }
+
+.above-1900 {
+        display: inline;
+    }
+
+td.above-1900, th.above-1900  {
+        display: table-cell;
+    }
+
+.below-1900 {
+        display: none;
+    }
+
+@media (max-width: 1900px) {
+    .above-1900  {
+        display: none;
+    }
+
+    td.above-1900, th.above-1900  {
+        display: none;
+    }
+
+    .below-1900  {
+        display: inline-block;
+    }
+
+ }
+
+@media (max-width: 1550px) {
+
+    .above-1550 {
+        display: none;
+    }
+
+    td.above-1550, th.above-1550  {
+        display: none;
+    }
+
+    .below-1550 {
+        display: inline-block;
+    }
+
+    .sidebaropen .above-1550 {
+        display: none;
+    }
+
+    .sidebaropen.showutilisations .above-1550 {
+        display: none;
+    }
+
+    .bom-results.vfportal .portal-content-sidebar.bom-sidebar-closed.sidebaropen.showutilisations, .bom-results.vfportal .portal-content-sidebar.bom-sidebar-closed.sidebaropen.buttonsidebaropen.showutilisations {
+        width: 200px;
+    }
+
+    .vf-portal .portal-content-container .bom-results.portal-content-main.vfportal  .portal-content-body {
+      //  padding-right: 0;
+    }
+
+    .vf-portal .portal-content-container .bom-results.portal-content-main.vfportal  .portal-content-body.showutilisations .panel {
+        margin-left: 28px;
+    }
+
+    .vf-portal .portal-content-container .bom-results.portal-content-main.vfportal  .portal-content-body.showutilisations .panel.bom-panel {
+        margin-left: 10px;
+    }
+
+    .portal-content-container .bom-results.portal-content-main.vfportal  .portal-content-body.sidebaropen.showutilisations, .portal-content-container .bom-results.portal-content-main.vfportal  .portal-content-body.buttonsidebaropen.sidebaropen.showutilisations {
+        width:100%!important;
+        padding-left: 200px!important;
+    }
+}
+
+@media (max-width: 1300px) {
+
+    .above-1300 {
+        display: none;
+    }
+
+    td.above-1300, th.above-1300  {
+        display: none;
+    }
+
+    .below-1300 {
+        display: inline-block;
+    }
+}
+
+@media (max-width: 1275px) {
+
+    .bom-results.vfportal .portal-content-sidebar.bom-sidebar-closed.sidebaropen, .bom-results.vfportal .portal-content-sidebar.bom-sidebar-closed.sidebaropen.buttonsidebaropen {
+        width: 200px;
+    }
+
+    .vf-portal .portal-content-container .bom-results.portal-content-main.vfportal  .portal-content-body .panel {
+        margin-left: 28px;
+    }
+
+    .vf-portal .portal-content-container .bom-results.portal-content-main.vfportal  .portal-content-body .panel.bom-panel {
+        margin-left: 10px;
+    }
+
+    .portal-content-container .bom-results.portal-content-main.vfportal  .portal-content-body.sidebaropen, .portal-content-container .bom-results.portal-content-main.vfportal  .portal-content-body.buttonsidebaropen.sidebaropen {
+        width:100%!important;
+        padding-left: 170px!important;
+        
+    }
+
+    .bom-results.vfportal .portal-content-sidebar.bom-sidebar-closed.sidebaropen.showutilisations, .bom-results.vfportal .portal-content-sidebar.bom-sidebar-closed.sidebaropen.buttonsidebaropen.showutilisations {
+        width: 125px;
+        padding-left: 5px;
+    }
+
+    .portal-content-container .bom-results.portal-content-main.vfportal  .portal-content-body.sidebaropen.showutilisations, .portal-content-container .bom-results.portal-content-main.vfportal  .portal-content-body.buttonsidebaropen.sidebaropen.showutilisations {
+        width:100%!important;
+        padding-left: 110px!important;
+        padding-right: 10px;
+    }
+
+    .bom-results .sidebaropen.showutilisations h3 {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 1175px) {
+
+    .above-1175 {
+        display: none;
+    }
+
+    td.above-1175, th.above-1175  {
+        display: none;
+    }
+
+    .below-1175 {
+        display: inline-block;
+    }
+
+    .portalbreadcrumbs {
+      left: -22px;
+    }
+}
+
+@media (max-width: 1150px) {
+
+    div.openClose .nav > li > a {
+      padding-left: 5px; 
+    }
+
+    div.openClose .tab-content {
+      padding-left: 5px; 
+    }
+
+    .bom-results.portal-content-main.vfportal  .panel-body {
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .modal-content .bom-results.portal-content-main.vfportal  .panel-body {
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+}
+
+.portal-content-container .bom-results.portal-content-main.vfportal  .portal-content-body.buttonsidebaropen, .portal-content-container .bom-results.portal-content-main.vfportal  .portal-content-body.buttonsidebarclosed.sidebaropen, .portal-content-container .bom-results.portal-content-main.vfportal  .portal-content-body.buttonsidebaropen.showUtilisations, .portal-content-container .bom-results.portal-content-main.vfportal  .portal-content-body.buttonsidebarclosed.sidebaropen.showUtilisations {
+    width:100%!important;
+    padding-left: 0px !important;
+}
+
+.vf-portal .portal-content-body.sidebarclose {
+  padding-left: 70px !important;
+}
+
+.panel-heading nav.navbar-tv-bottom {
+    margin-top: -40px;
+    margin-bottom: 0;
+    padding: 0;
+    background-color: #d9edf7;
+}
+
+/* Tree Sidebar Sizing */
+
+.treeSideBar {
+  //width:columns-span(2);
+  float:left;
+  width:15%;
+}
+
+/* BOM Grid Sizing to Match Sidebar */
+
+.bomGridWithSideBar {
+  float:left;
+  width:85%;
+}
+
+/* Tree Formatting */
+
+.bomTree {
+  padding-left:0px;
+	margin-left: 0px;
+}
+
+/* Added for draggable library sidebar */
+
+.portal-library ul.bomTree.bomTreeContain.panel {
+	margin-left: -2px;
+    padding-left: 0;
+}
+
+.bomTree.bomTreeContain {
+    position: relative;
+    z-index: 500;
+	margin-left: -12px;
+}
+
+/* Custom for Tool Library draggable, remove once done? */
+
+.vf-portal .portal-sidebar-inner .bomTree.bomTreeContain {
+	margin-left: -2px;
+}
+
+ul.bomTree li {
+  padding-left: 8px;
+  margin-top: 0;
+  margin-bottom: 0;
+  white-space: nowrap;}
+
+/* BOM page specific formatting overrides */
+
+ul.bom.bomTree li {
+  padding-left: 10px;
+  margin-top: 3px;
+  margin-bottom: 3px; }
+
+.bom-results .tab-content {
+  padding: 5px 10px;
+}
+
+ul.bomTree > li > ul {
+  font-style: italic; }
+
+ul.bomTree.bom-desc-text {
+	font-size: 12px;
+  font-style: normal; }
+
+ul.bomTree span.level-one {
+	font-size: 13px;
+	text-transform: capitalize; }
+
+ul.bomTree span.level-two {
+    font-size: 12px;
+    font-style: normal;
+    text-transform: uppercase; }
+
+.bom-tree-heading.ng-scope {
+  font-size:93%;
+}
+
+ul.bomTree.bomTreeContain.panel {
+    padding: 10px 8px; 
+}
+ul.bomTree.bomTreeContain.panel > li {
+    overflow: hidden; 
+}
+
+.modal-content .bom-results.portal-content-main.vfportal .panel-body {
+ //   padding-left: 5px;
+  //  padding-right: 5px;
+  padding-bottom: 15px;
+}

@@ -1,0 +1,156 @@
+$bootstrap-sass-asset-helper: false !default;
+//
+// Variables
+// --------------------------------------------------
+
+
+//== Colors
+//
+//## Gray and brand colors for use across vf.
+
+$gray-lightening:           #ccc !default; // #ccc
+$gray-lightest:          lighten($gray-base, 91%) !default; // #e8e8e8
+$gray-even-lightest:     lighten($gray-base, 95%) !default; // #f2f2f2
+
+// Sidebar Navigation
+$nav-focus:							 #6b84d1 !default;
+$nav-inner-focus:				 #94A6DE !default; 
+$nav-icon:							 #ACB9CF !default;
+$nav-inner-icon:				 #9aa6ba !default;
+$nav-inner-select-icon:	 #8391aa !default;
+
+$brand-primary:          #3760C1 !default;
+$brand-primary-lightest: #EAEFFC !default;
+$brand-success:          #2CA01C !default;
+$brand-info:             #0098CD !default;
+$brand-warning:          #FC8618 !default;
+$brand-danger:           #E33D43 !default;
+
+// New brand colors
+
+$brand-inverse:          #363C47 !default;
+$brand-turquoise:        #2BCCAC !default;
+$brand-green:						 #90EE90 !default;
+$brand-yellow:					 #FFFF88 !default;
+$brand-brown:						 #D2691E !default;
+$brand-blue:						 #a5c9e9 !default;
+$brand-pink:             #FCA4A7 !default;
+$brand-cream:            #fcf8e3 !default; 
+$brand-orange:           #FC8618 !default;
+$brand-noir:             #404040 !default;
+$brand-white:            #fff !default;
+
+
+//== Typography
+//
+//## Font, line-height, and color for body text, headings, and more.
+
+$font-family-sans-serif:  "texgyreherosregular", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$font-family-serif:       Georgia, "Times New Roman", Times, serif !default;
+//** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
+$font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace !default;
+$font-family-base:        $font-family-sans-serif !default;
+
+//** By default, this inherits from the `<body>`.
+$headings-font-family:    "texgyreherosbold", "texgyreherosregular","Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$headings-font-weight:    normal !default;
+$headings-line-height:    1.1 !default;
+$headings-color:          inherit !default;
+
+
+//== Components
+//
+//## Define common padding and border radius sizes and more. Values based on 14px text and 1.428 line-height (~20px to start).
+
+$border-width-base:					1px !default;
+$border-color-base:					#ccc !default;
+$border-color-light:				$gray-lightest !default;
+$border-style-base:					solid !default;
+
+$border-radius-base:        3px !default;
+$border-radius-large:       4.5px !default;
+$border-radius-small:       2px !default;
+
+//** Global color for active items (e.g., navs or dropdowns).
+$component-active-color:    #fff !default;
+//** Global background color for active items (e.g., navs or dropdowns).
+$component-active-bg:       $brand-primary !default;
+
+
+//== Buttons
+//
+//## For each of Bootstrap's buttons, define text, background and border color.
+
+$btn-font-weight:                normal !default;
+
+$btn-default-color:              $gray-dark !default;
+$btn-default-bg:                 #fff !default;
+$btn-default-border:             $gray-lightening !default;
+$btn-default-border-gradient-moz: -moz-linear-gradient(top, #fff, #eaeaed)!default;
+$btn-default-border-gradient-webkit: -webkit-linear-gradient(top, #fff, #eaeaed) !default;
+$btn-default-border-gradient-o-linear: -o-linear-gradient(top, #fff, #eaeaed) !default;
+$btn-default-border-gradient-ms-linear: -ms-linear-gradient(top, #fff, #eaeaed) !default;
+$btn-default-border-gradient-linear: linear-gradient(to bottom, #fff, #eaeaed) !default;
+
+$btn-primary-color:              #fff !default;
+$btn-primary-bg:                 $brand-primary !default;
+$btn-primary-border:             darken($btn-primary-bg, 5%) !default;
+$btn-primary-border-gradient-moz: -moz-linear-gradient(top, #7796e0, $brand-primary) !default;
+$btn-primary-border-gradient-webkit: -webkit-linear-gradient(top, #7796e0, $brand-primary) !default;
+$btn-primary-border-gradient-o-linear: -o-linear-gradient(top, #7796e0, $brand-primary) !default;
+$btn-primary-border-gradient-ms-linear: -ms-linear-gradient(top, #7796e0, $brand-primary) !default;
+$btn-primary-border-gradient-linear: linear-gradient(to bottom, #7796e0, $brand-primary) !default;
+
+$btn-success-color:              #fff !default;
+$btn-success-bg:                 $brand-success !default;
+$btn-success-border:             darken($btn-success-bg, 5%) !default;
+$btn-success-border-gradient-moz: -moz-linear-gradient(top, #4cc23a, #2CA01C) !default;
+$btn-success-border-gradient-webkit: -webkit-linear-gradient(top, #4cc23a, #2CA01C) !default;
+$btn-success-border-gradient-o-linear: -o-linear-gradient(top, #4cc23a, #2CA01C) !default;
+$btn-success-border-gradient-ms-linear: -ms-linear-gradient(top, #4cc23a, #2CA01C) !default;
+$btn-success-border-gradient-linear: linear-gradient(to bottom, #4cc23a, #2CA01C) !default;
+
+$btn-info-color:                 #fff !default;
+$btn-info-bg:                    $brand-info !default;
+$btn-info-border:                darken($btn-info-bg, 5%) !default;
+$btn-info-border-gradient-moz: -moz-linear-gradient(top, #52c5eb, #0098CD) !default;
+$btn-info-border-gradient-webkit: -webkit-linear-gradient(top, #52c5eb, #0098CD) !default;
+$btn-info-border-gradient-o-linear: -o-linear-gradient(top, #52c5eb, #0098CD) !default;
+$btn-info-border-gradient-ms-linear: -ms-linear-gradient(top, #52c5eb, #0098CD) !default;
+$btn-info-border-gradient-linear: linear-gradient(to bottom, #52c5eb, #0098CD) !default;
+
+$btn-warning-color:              #fff !default;
+$btn-warning-bg:                 $brand-warning !default;
+$btn-warning-border:             darken($btn-warning-bg, 5%) !default;
+$btn-warning-border-gradient-moz: -moz-linear-gradient(top, #fab273, #FC8618) !default;
+$btn-warning-border-gradient-webkit: -webkit-linear-gradient(top, #fab273, #FC8618) !default;
+$btn-warning-border-gradient-o-linear: -o-linear-gradient(top, #fab273, #FC8618) !default;
+$btn-warning-border-gradient-ms-linear: -ms-linear-gradient(top, #fab273, #FC8618) !default;
+$btn-warning-border-gradient-linear: linear-gradient(to bottom, #fab273, #FC8618) !default;
+
+$btn-danger-color:               #fff !default;
+$btn-danger-bg:                  $brand-danger !default;
+$btn-danger-border:              darken($btn-danger-bg, 5%) !default;
+$btn-danger-border-gradient-moz: -moz-linear-gradient(top, #f0787e, #E33D43) !default;
+$btn-danger-border-gradient-webkit: -webkit-linear-gradient(top, #f0787e, #E33D43) !default;
+$btn-danger-border-gradient-o-linear: -o-linear-gradient(top, #f0787e, #E33D43) !default;
+$btn-danger-border-gradient-ms-linear: -ms-linear-gradient(top, #f0787e, #E33D43) !default;
+$btn-danger-border-gradient-linear: linear-gradient(to bottom, #f0787e, #E33D43) !default;
+
+
+$btn-link-disabled-color:        $gray-light !default;
+
+
+//== Forms
+//
+//##
+
+//** `<input>` background color
+$input-bg:                       #fff !default;
+//** `<input disabled>` background color
+$input-bg-disabled:              $gray-lightening !default;
+
+//** Text color for `<input>`s
+$input-color:                    $gray !default;
+//** `<input>` border color
+$input-border:                   $gray-lightening !default;

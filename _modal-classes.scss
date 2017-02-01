@@ -1,0 +1,91 @@
+﻿/* VF modals */
+
+/* Modal formatting, much for legacy modals that may not now apply */
+
+/* Bootstrap Grid offset classes adjustment */
+
+// Adds 15px of padding to all offset classes in modals to line up checkboxes and radio buttons in forms.
+
+.modal-body div[class*="-offset-"], .modal-body span[class*="-offset-"] {
+    padding-left: 15px;
+}
+
+.darkoverlay {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  margin-left: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 60; }
+
+.modaldialog {
+  @include x-browser-border-radius($border-radius-base);
+	position: fixed;
+  top: 5%;
+  left: 10%;
+  margin: 0;
+  z-index: 90;
+  background-color: $brand-white; }
+
+.medmodaldialog, .largmodaldialog {
+	@extend .modaldialog;
+}
+
+.modalheaderwarning, .modalheadergeneric {
+  background: $brand-cream;
+  padding: 0.6em;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px; }
+
+.modalheadergeneric {
+  background-color: #efefef; 
+  height:36px;
+  padding:0px;
+  }
+
+ .modalheadergeneric h4 {
+  float: left;
+  padding-top: 3px;
+  padding-left: 10px;
+  }
+
+ .modalheadergeneric button.btn {
+  float: right;
+  display:inline-block;
+  }
+
+ .modalheadergeneric i.fa {
+  font-size: 16px;
+  }
+
+.modalcontent {
+  float: left;
+  width: 100%;
+  padding: 0.8em;
+  text-align: center; 
+	}
+
+.medmodaldialog {
+  max-height: 580px;
+  height: 70%;
+  width: 80%;
+  max-width: 900px;
+  overflow: auto; 
+	}
+
+.largmodaldialog {
+  max-height: 800px;
+  height: 80%;
+  width: 80%;
+  max-width: 1300px;
+  overflow: auto; 
+	}
+
+.modal-full {
+  width:100%;
+  padding:0 30px;
+}

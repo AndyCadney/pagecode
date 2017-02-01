@@ -1,0 +1,318 @@
+﻿ .completestring {
+    position: absolute;
+    z-index: 2000;
+    width: 55vw;
+    max-width: 55vw;
+    word-wrap: break-word;
+    white-space: normal;
+    top: 35px;
+    left: -80px;
+    display: block;
+    line-height: 1.4;
+    max-height: 250px;
+    border-radius: 3px;
+    background-color: #333;
+    padding: 0;
+    padding-bottom: 10px;
+    color: #fff;
+  }
+  .completestring:after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    position: absolute;
+    border-top: 5px solid #333;
+    border-right: 5px solid rgba(255, 255, 255, 0);
+    border-left: 5px solid transparent;
+    top:30px;
+    left:-8px;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+  }  
+  .large-string.completestring:after {
+    top:60px;
+  }
+  .very-large-string.completestring:after {
+    top:95px;
+  }
+  .really-very-large-string.completestring:after {
+    top:130px;
+  }
+  .secondaryclass {
+    max-height:250px;
+    overflow:auto;
+    padding:5px 10px;
+  }
+  .slash {
+    padding:5px 0;
+    font-size:20px;
+    color:orange;
+  }
+    .small-completestring {
+    position: absolute;
+    z-index: 2000;
+    width: 275px;
+    max-width: 500px;
+    white-space: normal;
+    word-wrap: break-word;
+    top: 25px;
+    left: 180px;
+    display: block;
+    line-height: 1.4;
+    max-height: 350px;
+    border-radius: 3px;
+    background-color: #333;
+    padding: 0;
+    color: #fff;
+  }
+  .small-completestring:after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    position: absolute;
+    border-top: 5px solid #333;
+    border-right: 5px solid rgba(255, 255, 255, 0);
+    border-left: 5px solid transparent;
+    top:10px;
+    left:-8px;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+  }
+    .end-cell.small-completestring:after {
+    top:-5px;
+    left:175px;
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+  .small-secondaryclass {
+    max-height:250px;
+    overflow:auto;
+    padding:5px 10px;
+  }
+    .large-completestring {
+    position: absolute;
+    z-index: 2000;
+    width: 250px;
+    max-width: 250px;
+    white-space: normal;
+    word-wrap: break-word;
+    top: 25px;
+    left: -80px;
+    display: block;
+    line-height: 1.4;
+    max-height: 250px;
+    border-radius: 3px;
+    background-color: #333;
+    padding: 0;
+    color: #fff;
+  }
+  .large-completestring:after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    position: absolute;
+    border-top: 5px solid #333;
+    border-right: 5px solid rgba(255, 255, 255, 0);
+    border-left: 5px solid transparent;
+    top:15px;
+    left:-8px;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+  }
+  .large-secondaryclass {
+    max-height:250px;
+    overflow:auto;
+    padding:5px 10px;
+  }
+
+.table-fixed-header-block-container .stringcontainer {
+   max-width: 125px;
+}
+
+.table-fixed-header-block-container .small-stringcontainer {
+   max-width: 125px;
+}
+
+
+.table-fixed-header-block-container .large-stringcontainer {
+    width: 100%;
+}
+
+.table-fixed-header-block-container .truncate p {
+  max-width: 100px;
+}
+
+.table-fixed-header-block-container .stringcontainer span {
+   width: 100%;
+    //white-space: nowrap;
+   // overflow: hidden;
+    //text-overflow: ellipsis;
+}
+
+.table-fixed-header-block-container .small-stringcontainer span {
+   width: 100%;
+}
+
+.table-fixed-header-block-container .large-stringcontainer span {
+   width: 100%;
+}
+
+.table-fixed-header-block-container .completestring {
+   position: absolute;
+   white-space:  normal;
+   overflow: visible;
+   margin-bottom: -200px;
+}
+
+
+
+
+/* Truncate Directive Content */
+
+.truncate, .truncate p, .table.table-striped.table-bordered tr td.truncate p {
+  position: relative;
+  top: 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.truncate:hover p, .table.table-striped.table-bordered tr td.truncate:hover p {
+  position: absolute;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: initial;
+  margin: 0;
+  word-wrap: break-word;
+    display: block;
+    line-height: 1.4;
+    max-height: 250px;
+    width: 200px;
+    border-radius: 3px;
+    background-color: #333;
+    padding: 5px;
+    padding-bottom: 10px;
+    color: #fff;
+}
+
+.truncate:hover p:after, .table.table-striped.table-bordered tr td.truncate:hover p:after {
+  content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    position: absolute;
+    border-top: 5px solid #333;
+    border-right: 5px solid rgba(255, 255, 255, 0);
+    border-left: 5px solid transparent;
+    top:30px;
+    left:-8px;
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+/* CSS truncate directive classes */
+
+.css-truncate div.truncated, .css-truncate div.truncated p, .css-truncate div.truncated span {
+  position: relative;
+  top: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 120px;
+  margin-bottom: 0;
+}
+
+.tasks-fixed .css-truncate div.untruncated {
+  position: relative;
+  z-index: 10000;
+}
+
+.css-truncate div.truncated a {
+  color: #000;
+}
+
+.css-truncate div.untruncated {
+  display: none;
+}
+
+.css-truncate:hover div.untruncated {
+  display: inline-block;
+  visibility: visible;
+  position: absolute;
+  left: 15px;
+  z-index: 2000;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: initial;
+  margin: 0;
+  word-wrap: break-word;
+    display: block;
+    line-height: 1.4;
+    max-height: 200px;
+    width: 120px;
+    border-radius: 3px;
+    background-color: #333;
+    padding: 5px;
+    padding-bottom: 10px;
+    color: #fff;
+}
+
+.css-truncate:hover div.untruncated a {
+    color: #fff;
+}
+
+.css-truncate:hover div.untruncated:after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    position: absolute;
+    border-top: 5px solid #333;
+    border-right: 5px solid rgba(255, 255, 255, 0);
+    border-left: 5px solid transparent;
+    top:-5px;
+    left:5px;
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+.css-truncate div.untruncated.invisible-untruncated {
+  visibility: hidden;
+}
+
+/* Truncated-html Directive Content */
+
+.css-truncate .truncated-html, .truncated-html p {
+  position: relative;
+  top: 0;
+  left: -20px;
+  padding: 0 30px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.css-truncate .truncated-html::after {
+    content: "";
+  
+}

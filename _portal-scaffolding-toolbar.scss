@@ -1,0 +1,145 @@
+﻿/* Matrix toolbar classes */
+
+.portal-table-container {
+    height: 98%;
+    width: 100%;
+    overflow:hidden;
+	overflow-x:auto;
+}
+
+.portal-content-body .portal-table-container.expand-collapse {
+    margin-top: -25px;
+    padding-top: 25px;
+}
+
+.portal-content-sidebar .nav.nav-tabs {
+    margin-bottom: 10px;
+}
+
+.bom-results .portal-content-sidebar .tab-content {
+    margin-bottom: 170px;
+}
+
+nav.navbar-tv-bottom {
+	min-height: 64px;
+	padding: 0 10px;
+	margin: 0;
+	background-color: $gray-lightest;
+	border-bottom: solid 1px $gray-lightening;
+	
+  ul {
+  	display: inline-block;
+    margin: 0 1px;
+    padding: 0 20px;
+    border-right-width: 1px;
+    border-left-style: double;
+    border-left-width: 1px;
+    border-right-color: none;
+    border-left-color: #ccc; }
+  ul li {
+    margin-top: 8px;
+  }
+  ul li.box-below {
+    position: absolute;
+    left: 0;
+    top: 35px;
+    font-size: 70%;
+    text-align: center;
+    display: inline-block;
+    float: none;
+    width: 100%;
+  }
+	ul.navbar-nav {
+		position: relative;
+		left: 0;
+		top: 0;
+	}
+
+    h1 {
+
+    }
+
+    h2 {
+
+    }
+
+    h3 {
+
+    }
+
+    h4 {
+
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        margin: 5px 5px 0 10px;
+    }
+}
+
+nav.portal-toolbar.navbar-tv-bottom {
+   margin-top: -39px;
+   padding: 0 13px;
+}
+
+nav.navbar-tv-bottom ul:first-child {
+    border-left-style: none;
+    border-left-color: none; 
+}
+
+.bom-results.portal-content-main .panel-heading > nav.portal-toolbar.navbar-tv-bottom {
+    padding: 0; 
+}
+
+.panel-heading nav.navbar-tv-bottom ul:first-child {
+    color: #31708f;
+    background-color: #d9edf7;
+    border-color: #bce8f1; 
+}
+
+.portal-toolbar .menu-item-label {
+  padding: 0px 25px;
+  margin-top: -6px;
+  margin-bottom: 0px;
+}
+
+.portal-toolbar label {
+  font-weight: bold;
+}
+
+.bom-results.portal-content-main nav.navbar-tv-bottom {
+  min-height: 50px;
+  margin-top: 0px;
+  border: none; 
+}
+
+.toolbar-backup{
+  background-color: #e8e8e8;
+}
+
+.box-below {
+  display: inline-block;
+  position: relative;
+  left: 0px;
+  top: 0px;
+  text-align: center;
+  color: #777777 !important;
+  font-size: 75% !important;
+  font-weight: bold;
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    /* IE10+ CSS styles go here */
+
+    .box-below {
+  width: 70%;
+  margin: 0 auto; }
+}
+
+@-moz-document url-prefix() { 
+  .box-below {
+  width: 70%;
+  margin: 0 auto; }
+}
